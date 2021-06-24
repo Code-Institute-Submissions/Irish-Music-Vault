@@ -1,3 +1,13 @@
+# UX
+## User Stories:
+1. As a visitor to the site, I am looking for a comprehensive database of albums by a diverse genre list of Irish bands.
+2. As a visitor to the site, I want to be able to either add my own bands albums and/or another bands albums.
+3. As a visitor to the site, I want the database to be easy to navigate and without duplicate albums being present.
+4. As a visitor to the site, I want to have my own profile page on which I can clearly see my own uploads and edit/delete them if I so wish. For this I would require the ability to register and login.
+5. As a visitor to the site, I want links to online shops wherein I can purchase the listed albums. 
+6. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
+
+
 # Technologies Used
 1. randomkeygen.com was used to get a strong password to use as my SECRET_KEY enviornment variable which was needed for use with the flash() and session() functions of Flask. 
 
