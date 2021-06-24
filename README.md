@@ -1,3 +1,6 @@
+# About
+Irish Music Vault is intended as a database of albums recorded by Irish bands to be updated by both an admin and users of the site. The goal is to, in time, have a fully comprehensive database of albums across a multitude of genres.
+
 # UX
 ## User Stories:
 1. As a visitor to the site, I am looking for a comprehensive database of albums by a diverse genre list of Irish bands.
@@ -6,10 +9,14 @@
 4. As a visitor to the site, I want to have my own profile page on which I can clearly see my own uploads and edit/delete them if I so wish. For this I would require the ability to register and login.
 5. As a visitor to the site, I want links to online shops wherein I can purchase the listed albums. 
 6. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
+7. As a visitor to the site, I want a way to communicate with other users of the site via a comments section. 
 
 
 # Technologies Used
 1. randomkeygen.com was used to get a strong password to use as my SECRET_KEY enviornment variable which was needed for use with the flash() and session() functions of Flask. 
+
+# Testing
+1. When setting up the flask app in the app.py file, debug is set to true in the app.run method within the 'if __name__ == "__main__":' statement. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
 
 # Deployment
 
