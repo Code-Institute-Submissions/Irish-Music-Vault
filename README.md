@@ -11,6 +11,13 @@ Irish Music Vault is intended as a database of albums recorded by Irish bands to
 6. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
 7. As a visitor to the site, I want a way to communicate with other users of the site via a comments section. 
 
+# Design
+## Fonts
+The site uses two fonts. 
+1. For the main text on the site within paragraphs and the copyright, Cormorant Garamond is used and taken from Google Fonts. 
+2. For headings and the site logo text, Comfortaa is used and taken from Gogle fonts.
+## Color palette
+1. The bar, footer
 
 # Technologies Used
 1. MongoDB was used as a database for holding any data related to the site.  
