@@ -19,3 +19,8 @@ body {
 .card {
     width: 100vw;
 }
+
+.card-image {
+    height: 500px;
+    width: 500px;
+}
