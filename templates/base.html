@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
     {% block styles %}
     {% endblock %}
@@ -21,7 +23,7 @@
           <a href="#!" class="brand-logo teal-text text-lighten-3">Irish Music Vault</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right teal-text text-lighten-3"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="" class="teal-text text-lighten-3">Directory</a></li>
+            <li><a href="" class="teal-text text-lighten-3">Home</a></li>
             <li><a href="" class="teal-text text-lighten-3">Profile</a></li>
             <li><a href="" class="teal-text text-lighten-3">Upload</a></li>
             <li><a href="" class="teal-text text-lighten-3">Register</a></li>
@@ -43,6 +45,29 @@
 
     {% block content %}
     {% endblock %}
+
+    <footer class="page-footer grey darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="teal-text text-lighten-3 center">Find Us On Social Media</h5>
+            <ul class="flex">
+              <li><a class="teal-text text-lighten-3" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+              <li><a class="teal-text text-lighten-3" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="teal-text text-lighten-3" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright s12">
+        <div class="container teal-text text-lighten-3 center">
+        © 2021 Third Milestone Project by Aaron Harbourne as a student of Code Institute.
+        </div>
+      </div>
+    </footer>
+
      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
