@@ -31,9 +31,13 @@ Irish Music Vault is intended as a database of albums recorded by Irish bands to
 7. Then, back within the 'Deploy' section of my Heroku profile, and within the 'Automatic Deploys' area, I click on the 'Enable Automatic Deploys' button. 
 8. Once Heroku has finished retrieving information from my GitHub repository I am presented with a button with 'View' written on it. This allows me to open up the project in the server.
 
-# Creadits
+# Credits
 ## Photos:
 1. Photo of Dogrel by Fontaines D.C. taken from https://www.fiveriserecords.co.uk/wp-content/uploads/2019/02/fontaines-dc-dogrel.jpg
 2. Photo of The Dubliners in Concert taken from https://images-na.ssl-images-amazon.com/images/I/61Udja6jyPL.jpg
 3. Photo of Zeitgeist by the Kevin Brady Trio taken from https://images.stevesjazzsounds.co.uk/images/products/original/11122009122925_160366280.jpg
 4. Photo of The Joshua Tree by U2 taken from https://images.genius.com/9790ce9f55a20d4664a52002b140ed68.1000x1000x1.jpg
+5. Photo of Suas Síos by Kíla taken from https://1.bp.blogspot.com/-XkHztxWMDJM/VYwHf1baNJI/AAAAAAAAExg/vB37DgDNu5c/s1600/11156152_10153214442287243_3030651577277183716_n.jpg
+6. Photo of the Cranberries, To The Faithful Departed taken from https://images.genius.com/e3e7dda4165c452e90a8a083b8d54550.800x800x1.jpg
+7. Photo of Justin Carroll's Togetherness taken from https://justincarroll.bandcamp.com/album/togetherness
+8. Photo of Agreements by Matt Halpin taken from https://matthewhalpinmusic.bandcamp.com/album/agreements
