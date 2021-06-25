@@ -18,10 +18,10 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/albums")
-def albums():
+@app.route("/home")
+def home():
     albums = mongo.db.albums.find()
-    return render_template("albums.html", albums=albums)
+    return render_template("home.html", albums=albums)
 
 
 if __name__ == "__main__":

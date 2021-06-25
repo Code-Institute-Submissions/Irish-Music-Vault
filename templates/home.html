@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col m3">
+      <img class="home-images" src="{{ url_for('static', filename='images/home-page-hero-1.jpeg') }}" alt="Fontaines DC">
+    </div>
+    <div class="col m3">
+      <img class="home-images" src="{{ url_for('static', filename='images/home-page-hero-2.jpg') }}" alt="The Dubliners in concert">
+    </div>
+    <div class="col m3">
+      <img class="home-images" src="{{ url_for('static', filename='images/home-page-hero-3.jpg') }}" alt="Organics, Zeitgeist">
+    </div>
+    <div class="col m3">
+        <img class="home-images" src="{{ url_for('static', filename='images/home-page-hero-4.jpg') }}" alt="u2, Joshua Tree">
+      </div>
+
+</div>
+{% endblock %}
