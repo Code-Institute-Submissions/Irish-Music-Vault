@@ -14,21 +14,21 @@
     {% endblock %}
     <title>Irish Music Vault</title>
 </head>
-<body>
+<body style="background: url({{ url_for('static', filename='images/home-page-background.jpeg') }}); background-position: bottom; background-size: cover; background-repeat: no-repeat;"></body></body>
 
   <header>
-      <nav class="nav-extended grey darken-4">
+      <nav class="nav-extended black darken-4 z-depth-4">
         <!--Top Navbar-->
         <div class="nav-wrapper text">
-          <a href="#!" class="brand-logo teal-text text-lighten-3">Irish Music Vault</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger right teal-text text-lighten-3"><i class="material-icons">menu</i></a>
+          <a href="#!" class="brand-logo green-text text-lighten-3">Irish Music Vault</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down text">
-            <li><a href="" class="text teal-text text-lighten-3">Home</a></li>
-            <li><a href="" class="text teal-text text-lighten-3">Profile</a></li>
-            <li><a href="" class="text teal-text text-lighten-3">Upload</a></li>
-            <li><a href="" class="text teal-text text-lighten-3">Register</a></li>
-            <li><a href="" class="text teal-text text-lighten-3">Login</a></li>
-            <li><a href="" class="text teal-text text-lighten-3">Logout</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Home</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Profile</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Register</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Login</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -46,23 +46,31 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="page-footer grey darken-4">
+    <footer class="page-footer black darken-4 z-depth-4">
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
+          <div class="col m6 s12">
+            <ul class="left text footer-ul">
+              <li><a href="" class="text green-text text-lighten-3">Home</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Profile</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Register</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Login</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
+            </ul>
           </div>
           <div class="col l4 offset-l2 s12">
-            <h5 class="teal-text text-lighten-3 center text">Find Us On Social Media</h5>
+            <h5 class="green-text text-lighten-3 center text">Find Us On Social Media</h5>
             <ul class="flex">
-              <li><a class="teal-text text-lighten-3" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
-              <li><a class="teal-text text-lighten-3" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-              <li><a class="teal-text text-lighten-3" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+              <li><a class="green-text text-lighten-3" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+              <li><a class="green-text text-lighten-3" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="green-text text-lighten-3" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer-copyright s12">
-        <div class="container teal-text text-lighten-3 center main">
+        <div class="container green-text text-lighten-3 center copyright">
         © 2021 Third Milestone Project by Aaron Harbourne as a student of Code Institute.
         </div>
       </div>
