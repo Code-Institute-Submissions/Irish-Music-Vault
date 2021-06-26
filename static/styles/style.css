@@ -31,7 +31,6 @@ nav {
 .row .home-images {
     height: 23vw;
     width: 23vw;
-    border: 1px solid black;
 }
 
 .card {
@@ -49,7 +48,7 @@ nav {
     text-shadow: 2px 2px 2px rgba(255,255,255, 0.25);
     font-family: "Comfortaa", sans-serif;
     letter-spacing: 6px;
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
 }
 
 .card-home {
