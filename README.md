@@ -48,4 +48,7 @@ The site uses two fonts.
 6. Photo of the Cranberries, To The Faithful Departed taken from https://images.genius.com/e3e7dda4165c452e90a8a083b8d54550.800x800x1.jpg
 7. Photo of Justin Carroll's Togetherness taken from https://justincarroll.bandcamp.com/album/togetherness
 8. Photo of Agreements by Matt Halpin taken from https://matthewhalpinmusic.bandcamp.com/album/agreements
-9. Background image on home screen of u2 taken from https://3.bp.blogspot.com/-1tz_NMF9Ess/V5bjNP9UDdI/AAAAAAAAA_E/do3OyZvSr4EGMXBjTiO81JOZM_bTAD5ewCLcB/s1600/All%2BThat%2BYou%2BCan%2527t%2BLeave%2BBehind.jpg
+9. Photo of Crazy World by Aslan taken from https://img.discogs.com/xtHtiwsexYZeijXDqFweFUZ1AMU=/fit-in/500x460/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9590441-1483291962-3233.jpeg.jpg
+10. Photo of the Pogues, Waiting For Herb taken from https://en.wikipedia.org/wiki/Waiting_for_Herb#/media/File:Waiting_for_herb.jpg
+11. Photo of the Dubliners, Revolution taken from https://en.wikipedia.org/wiki/Revolution_(The_Dubliners_album)#/media/File:Dubliners_Revolution.jpg
+12. Photo of Echos by John Moriarty taken from https://www.rte.ie/entertainment/music-reviews/2013/0306/449906-guitar/

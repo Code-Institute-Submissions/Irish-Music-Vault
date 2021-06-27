@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cormorant+Garamond:wght@700&display=swap');
 
 /* ----------------------------------------------base.html*/
+body {
+    background-color: #e8f5e9;
+}
 
 .text {
     text-shadow: 2px 2px 2px rgba(255,255,255, 0.25);
@@ -29,8 +32,16 @@ nav {
 /* ----------------------------------------------home.html*/
 
 .row .home-images {
-    height: 23vw;
-    width: 23vw;
+    height: 15vw;
+    width: 15vw;
+   /* margin-top: 1.5rem; */
+}
+
+.row .home-images-top {
+    height: 15vw;
+    width: 15vw;
+    margin-top: 1.25rem; 
+   
 }
 
 .card {
@@ -48,9 +59,11 @@ nav {
     text-shadow: 2px 2px 2px rgba(255,255,255, 0.25);
     font-family: "Comfortaa", sans-serif;
     letter-spacing: 6px;
-    font-size: 2.5rem !important;
+    font-size: 3rem !important;
 }
 
 .card-home {
     border: 1px solid #00695c;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
