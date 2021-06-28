@@ -20,13 +20,13 @@
       <nav class="nav-extended black darken-4 z-depth-4">
         <!--Top Navbar-->
         <div class="nav-wrapper text">
-          <a href="#!" class="brand-logo green-text text-lighten-3">Irish Music Vault</a>
+          <a href="{{ url_for('home') }}" class="brand-logo green-text text-lighten-3">Irish Music Vault</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down text">
-            <li><a href="" class="text green-text text-lighten-3">Home</a></li>
+            <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
             <li><a href="" class="text green-text text-lighten-3">Profile</a></li>
             <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
-            <li><a href="" class="text green-text text-lighten-3">Register</a></li>
+            <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
             <li><a href="" class="text green-text text-lighten-3">Login</a></li>
             <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
           </ul>
@@ -34,10 +34,10 @@
       </nav>
       <!--Mobile Side Navbar-->
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="" class="teal-text text-darken-4">Directory</a></li> 
+        <li><a href="{{ url_for('home') }}" class="teal-text text-darken-4">Home</a></li> 
         <li><a href="" class="teal-text text-darken-4">Profile</a></li>
         <li><a href="" class="teal-text text-darken-4">Upload</a></li>
-        <li><a href="" class="teal-text text-darken-4">Register</a></li>
+        <li><a href="{{ url_for('registration') }}" class="teal-text text-darken-4">Register</a></li>
         <li><a href="" class="teal-text text-darken-4">Login</a></li>
         <li><a href="" class="teal-text text-darken-4">Logout</a></li>
       </ul>
@@ -51,10 +51,10 @@
         <div class="row">
           <div class="col m6 s12">
             <ul class="left text footer-ul">
-              <li><a href="" class="text green-text text-lighten-3">Home</a></li>
+              <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
               <li><a href="" class="text green-text text-lighten-3">Profile</a></li>
               <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
-              <li><a href="" class="text green-text text-lighten-3">Register</a></li>
+              <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
               <li><a href="" class="text green-text text-lighten-3">Login</a></li>
               <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
             </ul>
@@ -75,7 +75,7 @@
         </div>
       </div>
     </footer>
-
+    
      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
