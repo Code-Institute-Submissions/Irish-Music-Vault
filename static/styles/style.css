@@ -34,7 +34,7 @@ nav {
 .row .home-images {
     height: 15vw;
     width: 15vw;
-   /* margin-top: 1.5rem; */
+    /* margin-top: 1.5rem; */
 }
 
 .row .home-images-top {
@@ -46,7 +46,7 @@ nav {
 
 .card {
     width: 99vw;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 
 .flex {
@@ -78,4 +78,10 @@ input {
 
 .flashes h4 {
     line-height: 2;
+}
+
+.title {
+    text-shadow: 2px 2px 2px rgba(255,255,255, 0.25);
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 4px;
 }

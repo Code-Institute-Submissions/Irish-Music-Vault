@@ -51,6 +51,34 @@ def registration():
     return render_template("registration.html")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # Check if username exists in database
+        # Python uses the name attribute from the form inputs
+        # So username below refers to the name attribute of the username input field
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # Check input password against the hashed password
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("Welcome back {}!".format(request.form.get("username")))
+            else:
+                # If passwords do not match
+                flash("Incorrect username/password entered, please try again")
+                return redirect(url_for("login"))
+        
+        else:
+            # Username not in database
+            flash("Incorrect username/password entered, please try again")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
