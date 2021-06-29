@@ -85,3 +85,7 @@ input {
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 4px;
 }
+
+.underline {
+    text-decoration: underline;
+}

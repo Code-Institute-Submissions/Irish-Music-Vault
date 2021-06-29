@@ -22,6 +22,7 @@ The site uses two fonts.
 # Technologies Used
 1. MongoDB was used as a database for holding any data related to the site.  
 2. randomkeygen.com was used to get a strong password to use as my SECRET_KEY enviornment variable which was needed for use with the flash() and session() functions of Flask. 
+3. Favicon.io was used to design a favicon for the site. (https://favicon.io/favicon-generator/)
 
 # Testing
 1. When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
