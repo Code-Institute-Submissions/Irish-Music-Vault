@@ -30,17 +30,24 @@ def registration():
     if request.method == "POST":
         #Check if username already exists
         already_exists = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+            )
 
         if already_exists:
             flash("Username already in use")
             return redirect(url_for("registration"))
 
+
         registration = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
-            "password": 
+            "password": generate_password_hash(request.form.get("password")),
         }
+        mongo.db.users.insert_one(registration)
+
+        #Put the new user into session 'cookie'
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful")
     return render_template("registration.html")
 
 
