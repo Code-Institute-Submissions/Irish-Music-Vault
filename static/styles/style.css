@@ -73,3 +73,9 @@ nav {
 input {
     color: white;
 }
+
+/* ----------------------------------------------registration.html*/
+
+.flashes h4 {
+    line-height: 2;
+}
