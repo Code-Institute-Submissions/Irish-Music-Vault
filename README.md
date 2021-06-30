@@ -46,7 +46,7 @@ The site uses two fonts.
 3. Photo of Zeitgeist by the Kevin Brady Trio taken from https://images.stevesjazzsounds.co.uk/images/products/original/11122009122925_160366280.jpg
 4. Photo of The Joshua Tree by U2 taken from https://images.genius.com/9790ce9f55a20d4664a52002b140ed68.1000x1000x1.jpg
 5. Photo of Suas Síos by Kíla taken from https://1.bp.blogspot.com/-XkHztxWMDJM/VYwHf1baNJI/AAAAAAAAExg/vB37DgDNu5c/s1600/11156152_10153214442287243_3030651577277183716_n.jpg
-6. Photo of the Cranberries, To The Faithful Departed taken from https://images.genius.com/e3e7dda4165c452e90a8a083b8d54550.800x800x1.jpg
+6. Photo of Vagabonds of the Western World by Thin Lizzy taken from https://cdn.cdon.com/media-dynamic/images/product/music/vinyllp/image769/vagabonds_of_the_western_world_vin-thin_lizzy-49230935-frntl.JPG
 7. Photo of Justin Carroll's Togetherness taken from https://justincarroll.bandcamp.com/album/togetherness
 8. Photo of Agreements by Matt Halpin taken from https://matthewhalpinmusic.bandcamp.com/album/agreements
 9. Photo of Crazy World by Aslan taken from https://img.discogs.com/xtHtiwsexYZeijXDqFweFUZ1AMU=/fit-in/500x460/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9590441-1483291962-3233.jpeg.jpg

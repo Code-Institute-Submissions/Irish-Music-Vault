@@ -28,22 +28,29 @@
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down text">
             <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
-            <li><a href="{{ url_for('profile', username=session['user']) }}" class="text green-text text-lighten-3">Profile</a></li>
+            {% if session.user %}
+            <li><a href="{{ url_for('profile', username=session['user']) }}"
+                class="text green-text text-lighten-3">Profile</a></li>
             <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+            <li><a href="{{ url_for('logout') }}" class="text green-text text-lighten-3">Logout</a></li>
+            {% else %}
             <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
             <li><a href="{{ url_for('login') }}" class="text green-text text-lighten-3">Login</a></li>
-            <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
       <!--Mobile Side Navbar-->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('home') }}" class="teal-text text-darken-4">Home</a></li> 
+        {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user']) }}" class="teal-text text-darken-4">Profile</a></li>
         <li><a href="" class="teal-text text-darken-4">Upload</a></li>
+        <li><a href="{{ url_for('logout') }}" class="teal-text text-darken-4">Logout</a></li>
+        {% else %}
         <li><a href="{{ url_for('registration') }}" class="teal-text text-darken-4">Register</a></li>
         <li><a href="{{ url_for('login') }}" class="teal-text text-darken-4">Login</a></li>
-        <li><a href="" class="teal-text text-darken-4">Logout</a></li>
+        {% endif %}
       </ul>
   </header>
 
@@ -71,11 +78,14 @@
           <div class="col m6 s12">
             <ul class="left text footer-ul">
               <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
+              {% if session.user %}
               <li><a href="{{ url_for('profile', username=session['user']) }}" class="text green-text text-lighten-3">Profile</a></li>
               <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+              <li><a href="{{ url_for('logout') }}" class="text green-text text-lighten-3">Logout</a></li>
+              {% else %}
               <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
               <li><a href="{{ url_for('login') }}" class="text green-text text-lighten-3">Login</a></li>
-              <li><a href="" class="text green-text text-lighten-3">Logout</a></li>
+              {% endif%}
             </ul>
           </div>
           <div class="col l4 offset-l2 s12">
