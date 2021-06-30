@@ -95,8 +95,9 @@ def profile(username):
 
 @app.route("/albums")
 def albums():
-    albums = mongo.db.albums.find()
-    return render_template("albums.html", albums=albums)
+    albums = list(mongo.db.albums.find())
+    genres = list(mongo.db.genres.find())
+    return render_template("albums.html", albums=albums, genres=genres)
 
 
 @app.route("/logout")

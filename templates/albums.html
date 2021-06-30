@@ -3,7 +3,18 @@
 
 <div class="row">
   <div class="col s12 m2 genres">
-
+      <h2>This year's releases</h2>
+      <ul>
+        {% for genre in genres %}
+        <li>{{ genre.genre_name }}</li>
+        {% endfor %}
+      </ul>
+      <h2>Archive</h2>
+      <ul>
+        {% for genre in genres %}
+        <li>{{ genre.genre_name }}</li>
+        {% endfor %}
+      </ul>
   </div>
   <div class="col s12 m10 albums">
     <h3 class="center-align title">Albums</h3>
