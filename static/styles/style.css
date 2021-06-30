@@ -100,3 +100,8 @@ input {
 .albums {
     height: 1000px;
 }
+
+.album-card-image {
+    width: 250px;
+    height: 250px;
+}

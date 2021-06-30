@@ -3,13 +3,13 @@
 
 <div class="row">
   <div class="col s12 m2 genres">
-      <h2>This year's releases</h2>
+      <h2 class="teal-text text-darken-4">This year's releases</h2>
       <ul>
         {% for genre in genres %}
         <li>{{ genre.genre_name }}</li>
         {% endfor %}
       </ul>
-      <h2>Archive</h2>
+      <h2 class="teal-text text-darken-4">Archive</h2>
       <ul>
         {% for genre in genres %}
         <li>{{ genre.genre_name }}</li>
@@ -20,10 +20,16 @@
     <h3 class="center-align title">Albums</h3>
     <div class="row">
       <div class="col s12 m8 offset-m2">
-        <div class="card-panel black darken-4 z-depth-5">
-
+        {% for album in albums %}
+        <div class="card-panel black darken-4 z-depth-5 white-text text-lighten-2 ">
+            <h2><strong>{{ album.band_name }}</strong></h2>
+            <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image">
+            <h4><strong>{{ album.album_name }}</strong></h4>
+            <h6>{{ album.release_date }}</h6>
+            <h6>{{ album.genre_name }}</h6>
         </div>
       </div>
+      {% endfor %}
   </div>
   </div>
 </div>
