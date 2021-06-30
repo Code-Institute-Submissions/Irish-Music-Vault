@@ -89,3 +89,14 @@ input {
 .underline {
     text-decoration: underline;
 }
+
+/* ----------------------------------------------albums.html*/
+
+.genres {
+    height: 1000px;
+    border-right: 2px solid black;
+}
+
+.albums {
+    height: 1000px;
+}

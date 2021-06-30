@@ -21,8 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    albums = mongo.db.albums.find()
-    return render_template("home.html", albums=albums)
+    return render_template("home.html")
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -92,6 +91,12 @@ def profile(username):
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
+
+
+@app.route("/albums")
+def albums():
+    albums = mongo.db.albums.find()
+    return render_template("albums.html", albums=albums)
 
 
 @app.route("/logout")
