@@ -28,6 +28,7 @@
           <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down text">
             <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
+            <li><a href="" class="text green-text text-lighten-3">Albums List</a></li>
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}"
                 class="text green-text text-lighten-3">Profile</a></li>
@@ -43,6 +44,7 @@
       <!--Mobile Side Navbar-->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('home') }}" class="teal-text text-darken-4">Home</a></li> 
+        <li><a href="" class="text green-text text-lighten-3">Albums List</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user']) }}" class="teal-text text-darken-4">Profile</a></li>
         <li><a href="" class="teal-text text-darken-4">Upload</a></li>
@@ -78,6 +80,7 @@
           <div class="col m6 s12">
             <ul class="left text footer-ul">
               <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
+              <li><a href="" class="text green-text text-lighten-3">Albums List</a></li>
               {% if session.user %}
               <li><a href="{{ url_for('profile', username=session['user']) }}" class="text green-text text-lighten-3">Profile</a></li>
               <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
