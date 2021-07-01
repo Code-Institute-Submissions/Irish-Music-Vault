@@ -102,7 +102,8 @@ def albums():
 
 @app.route("/upload")
 def upload():
-    return render_template("upload.html")
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("upload.html", genres=genres)
 
 
 @app.route("/logout")

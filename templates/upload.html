@@ -20,12 +20,10 @@
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <select id="genre_name" name="genre_name" class="validate" required>
-              <option class="input-fields grey-text" disabled selected>Choose Genre</option>
-              <option class="input-fields" value="1">Rock & Pop</option>
-              <option class="input-fields" value="2">Indie Rock</option>
-              <option class="input-fields" value="3">Rap</option>
-              <option class="input-fields" value="4">Jazz & Blues</option>
-              <option class="input-fields" value="5">Irish Traditional</option>
+              <option class="input-fields" disabled selected>Choose one</option>
+              {% for genre in genres %}
+              <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+              {% endfor %}
             </select>
             <label for="genre_name">Choose a genre</label>
           </div>
