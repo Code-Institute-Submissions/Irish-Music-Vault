@@ -32,7 +32,7 @@
             {% if session.user %}
             <li><a href="{{ url_for('profile', username=session['user']) }}"
                 class="text green-text text-lighten-3">Profile</a></li>
-            <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+            <li><a href="{{ url_for('upload') }}" class="text green-text text-lighten-3">Upload</a></li>
             <li><a href="{{ url_for('logout') }}" class="text green-text text-lighten-3">Logout</a></li>
             {% else %}
             <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
@@ -47,7 +47,7 @@
         <li><a href="{{ url_for('albums') }}" class="text green-text text-lighten-3">Albums List</a></li>
         {% if session.user %}
         <li><a href="{{ url_for('profile', username=session['user']) }}" class="teal-text text-darken-4">Profile</a></li>
-        <li><a href="" class="teal-text text-darken-4">Upload</a></li>
+        <li><a href="{{ url_for('upload') }}" class="teal-text text-darken-4">Upload</a></li>
         <li><a href="{{ url_for('logout') }}" class="teal-text text-darken-4">Logout</a></li>
         {% else %}
         <li><a href="{{ url_for('registration') }}" class="teal-text text-darken-4">Register</a></li>
@@ -83,7 +83,7 @@
               <li><a href="{{ url_for('albums') }}" class="text green-text text-lighten-3">Albums List</a></li>
               {% if session.user %}
               <li><a href="{{ url_for('profile', username=session['user']) }}" class="text green-text text-lighten-3">Profile</a></li>
-              <li><a href="" class="text green-text text-lighten-3">Upload</a></li>
+              <li><a href="{{ url_for('upload') }}" class="text green-text text-lighten-3">Upload</a></li>
               <li><a href="{{ url_for('logout') }}" class="text green-text text-lighten-3">Logout</a></li>
               {% else %}
               <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>

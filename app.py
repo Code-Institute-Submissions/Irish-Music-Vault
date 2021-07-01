@@ -100,6 +100,11 @@ def albums():
     return render_template("albums.html", albums=albums, genres=genres)
 
 
+@app.route("/upload")
+def upload():
+    return render_template("upload.html")
+
+
 @app.route("/logout")
 def logout():
     # Remove user from session cookies
