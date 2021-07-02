@@ -4,7 +4,7 @@
 <h3 class="center-align title">Upload an album</h3>
 
 <div class="row">
-    <form action="" method="POST">
+    <form action="{{ url_for('upload') }}" method="POST">
     <div class="row">
     <div class="input-field col s6 offset-s3 center-align">
       <input id="band_name" name="band_name" type="text" class="validate input-fields" required>
@@ -72,6 +72,13 @@
             <label class="active input-fields" for="songs">Album Track List</label>
         </div>
     </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button type="submit" class="btn-large green darken-2 sub-button text-shadow">
+            <i class="fas fa-sign-in-alt"></i> Upload
+          </button>
+        </div>
+      </div>
     </form>
   </div>
 {% endblock %}

@@ -105,8 +105,15 @@ def albums():
     return render_template("albums.html", albums=albums, genres=genres)
 
 
-@app.route("/upload")
+@app.route("/upload", methods=["GET", "POST"])
 def upload():
+    if request.method == "POST":
+        album = {
+            "band_name": request.form.get("band_name"),
+            "album_name": request.form.get("album_name"),
+            
+        }
+        mongo.db.albums.insert_one()
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("upload.html", genres=genres)
 
