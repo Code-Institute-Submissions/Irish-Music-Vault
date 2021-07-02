@@ -108,12 +108,23 @@ def albums():
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     if request.method == "POST":
+        this_year = "on" if request.form.get("this_year") else "off"
         album = {
             "band_name": request.form.get("band_name"),
             "album_name": request.form.get("album_name"),
-            
+            "genre_name": request.form.get("genre_name"),
+            "release_date": request.form.get("release_date"),
+            "this_year": this_year,
+            "album_image": request.form.get("album_image"),
+            "personnel": request.form.getlist("personnel"),
+            "songs": request.form.getlist("songs"),
+            "website": request.form.get("website"),
+            "created_by": session["user"]
         }
-        mongo.db.albums.insert_one()
+        mongo.db.albums.insert_one(album)
+        flash("Album added to album list")
+        return redirect(url_for("albums"))
+
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("upload.html", genres=genres)
 

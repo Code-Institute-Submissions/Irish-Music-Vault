@@ -102,7 +102,7 @@ input {
 }
 
 .albums {
-    height: 1000px;
+    height: auto;
     font-family: "Yrsa", sans-serif;
 }
 
