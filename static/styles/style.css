@@ -41,7 +41,10 @@ nav {
     height: 15vw;
     width: 15vw;
     margin-top: 1.25rem; 
-   
+}
+
+.flex-container {
+    display: flex;
 }
 
 .card {
@@ -67,8 +70,6 @@ nav {
     margin-bottom: 0px;
     margin-top: 0px;
 }
-
-/* ----------------------------------------------home.html*/
 
 input {
     color: white;

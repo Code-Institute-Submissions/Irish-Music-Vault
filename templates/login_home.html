@@ -3,27 +3,14 @@
 {% block content %}
 <div class="row">
     <div class="col m2">
+      <div class="flex-container">
       {% for album in albums %}
         {% if album.this_year == "on" %}
       <img class="home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
-    </div>
-    <div class="col m2">
-      <img class="home-images-top z-depth-5" src="" alt="Album Image">
-    </div>
-    <div class="col m2">
-      <img class="home-images-top z-depth-5" src="" alt="Album Image">
-    </div>
-    <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="Album Image">
-      </div>
-      <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="Album Image">
-      </div>
-      <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="Album Image">
         {% endif %}
-        {% endfor %}
+      {% endfor %}
       </div>
+    </div>
 </div>
 
 <div class="row">
