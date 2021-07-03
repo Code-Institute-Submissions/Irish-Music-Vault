@@ -133,9 +133,9 @@ def upload():
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")
         return redirect(url_for("albums"))
-
+    numbers = [1, 2, 3, 4, 5]
     genres = mongo.db.genres.find().sort("genre_name", 1)
-    return render_template("upload.html", genres=genres)
+    return render_template("upload.html", genres=genres, numbers=numbers)
 
 
 @app.route("/logout")
