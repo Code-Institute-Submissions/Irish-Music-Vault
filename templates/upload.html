@@ -80,13 +80,13 @@
     </div>
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-        <select>
+        <select id="rating" name="rating">
           <option value="" disabled selected>Rate This Album</option>
           {% for number in numbers %}
           <option value="{{ number }}">{{ number }}</option>
           {% endfor %}
         </select>
-        <label>Rate This Album between 1 - 5</label>
+        <label for="rating">Rate This Album between 1 - 5</label>
       </div>
     </div>
       <div class="row">

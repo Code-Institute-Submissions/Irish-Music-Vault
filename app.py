@@ -128,7 +128,8 @@ def upload():
             "songs": request.form.getlist("songs"),
             "website": request.form.get("website"),
             "created_by": session["user"],
-            "created_at": current_date
+            "created_at": current_date,
+            "rating": request.form.get("rating")
         }
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")

@@ -30,22 +30,13 @@
 
 <div class="row">
     <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Album Image">
-    </div>
-    <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Album Image">
-    </div>
-    <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Album Image">
-    </div>
-    <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="Album Image">
+      <div class="flex-container">
+      {% for album in albums %}
+          {% if album.rating == "5" %}
+      <img class="home-images home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
+          {% endif %}
+      {% endfor %}
       </div>
-      <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="Album Image">
-      </div>
-      <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="Album Image">
-      </div>
+    </div>
 </div>
 {% endblock %}
