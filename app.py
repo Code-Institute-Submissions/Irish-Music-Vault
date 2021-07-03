@@ -91,11 +91,13 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    email = mongo.db.users.find_one({"username": session["user"]})["email"]
+    albums = mongo.db.albums.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, albums=albums, email=email)
 
     return redirect(url_for("login"))
 

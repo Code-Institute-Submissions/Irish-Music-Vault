@@ -162,3 +162,10 @@ input {
     width: 15vw;
     margin-right: 25px;
 }
+
+/* ----------------------------------------------profile.html*/
+
+.profile {
+    color: black;
+    font-family: "Yrsa", sans-serif;
+}
