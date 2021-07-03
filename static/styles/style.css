@@ -31,6 +31,12 @@ nav {
 
 /* ----------------------------------------------home.html*/
 
+.row .home-images {
+    height: 15vw;
+    width: 15vw;
+    /* margin-top: 1.5rem; */
+}
+
 .row .home-images-top {
     height: 15vw;
     width: 15vw;
