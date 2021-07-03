@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+<span class="home-headers-top">Recently Added Albums By Users</span>
 <div class="row">
     <div class="col m2">
       <div class="flex-container">
       {% for album in albums %}
         {% if album.this_year == "on" %}
-      <img class="home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
+      <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
         {% endif %}
       {% endfor %}
       </div>
@@ -27,13 +28,13 @@
       </div>
     </div>
   </div>
-
+  <span class="home-headers">Highest Rated Albums</span>
 <div class="row">
     <div class="col m2">
       <div class="flex-container">
       {% for album in albums %}
           {% if album.rating == "5" %}
-      <img class="home-images home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
+      <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
           {% endif %}
       {% endfor %}
       </div>
