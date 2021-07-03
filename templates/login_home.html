@@ -3,22 +3,26 @@
 {% block content %}
 <div class="row">
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="" alt="Fontaines DC">
+      {% for album in albums %}
+        {% if album.this_year == "on" %}
+      <img class="home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
     </div>
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="" alt="Agreements by Matt Halpin">
+      <img class="home-images-top z-depth-5" src="" alt="Album Image">
     </div>
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="" alt="Organics, Zeitgeist">
+      <img class="home-images-top z-depth-5" src="" alt="Album Image">
     </div>
     <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="u2, Joshua Tree">
+        <img class="home-images-top z-depth-5" src="" alt="Album Image">
       </div>
       <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="Justin Carroll's Togetherness">
+        <img class="home-images-top z-depth-5" src="" alt="Album Image">
       </div>
       <div class="col m2">
-        <img class="home-images-top z-depth-5" src="" alt="The Dubliners, Revolution">
+        <img class="home-images-top z-depth-5" src="" alt="Album Image">
+        {% endif %}
+        {% endfor %}
       </div>
 </div>
 
@@ -39,22 +43,22 @@
 
 <div class="row">
     <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Johnny The Fox by Thin Lizzy">
+      <img class="home-images z-depth-5" src="" alt="Album Image">
     </div>
     <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Vagabonds of the Western World by Thin Lizzy">
+      <img class="home-images z-depth-5" src="" alt="Album Image">
     </div>
     <div class="col m2">
-      <img class="home-images z-depth-5" src="" alt="Aslan, Loving Me Lately">
+      <img class="home-images z-depth-5" src="" alt="Album Image">
     </div>
     <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="Yurodny, Evenset">
+        <img class="home-images z-depth-5" src="" alt="Album Image">
       </div>
       <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="John Moriarty, Echos">
+        <img class="home-images z-depth-5" src="" alt="Album Image">
       </div>
       <div class="col m2">
-        <img class="home-images z-depth-5" src="" alt="The Dubliners In Concert">
+        <img class="home-images z-depth-5" src="" alt="Album Image">
       </div>
 </div>
 {% endblock %}

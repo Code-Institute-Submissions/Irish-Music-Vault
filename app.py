@@ -27,7 +27,8 @@ def home():
 
 @app.route("/login_home")
 def login_home():
-    return render_template("login_home.html")
+    albums = list(mongo.db.albums.find())
+    return render_template("login_home.html", albums=albums)
 
 
 @app.route("/registration", methods=["GET", "POST"])
