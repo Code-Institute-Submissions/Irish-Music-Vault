@@ -169,3 +169,7 @@ input {
     color: black;
     font-family: "Yrsa", sans-serif;
 }
+
+.main-content {
+    min-height: calc(100vh - 320px);
+}
