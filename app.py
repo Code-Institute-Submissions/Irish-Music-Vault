@@ -1,4 +1,5 @@
 import os
+from time import time, ctime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -107,6 +108,12 @@ def albums():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
+    #current_date = datetime.datetime.today()
+    #dateobject = datetime.date.today()
+    #current_date = datetime.datetime.combine(dateobject, datetime.now())
+    now = time()
+    current_date = ctime(now)
+    
     if request.method == "POST":
         this_year = "on" if request.form.get("this_year") else "off"
         album = {
@@ -119,7 +126,8 @@ def upload():
             "personnel": request.form.getlist("personnel"),
             "songs": request.form.getlist("songs"),
             "website": request.form.get("website"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "created_at": current_date
         }
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")

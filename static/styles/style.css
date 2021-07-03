@@ -93,7 +93,7 @@ input {
 /* ----------------------------------------------albums.html*/
 
 .genres {
-    height: 5000px;
+    height: 4000px;
     border-right: 2px solid black;  
 }
 
@@ -123,4 +123,8 @@ input {
     font-family: "Yrsa", sans-serif;
     color: black;
     font-size: 1.25rem;
+}
+
+.invisible {
+    display: none;
 }
