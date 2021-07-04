@@ -41,6 +41,7 @@ def registration():
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
+            "avatar": request.form.get("avatar")
         }
         mongo.db.users.insert_one(registration)
 
@@ -76,7 +77,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome back {}".format(
-                    request.form.get("username")))
+                request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -96,7 +97,7 @@ def login():
 def profile(username):
     count = mongo.db.albums.find({"created_by": session["user"]}).count()
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
-    albums = mongo.db.albums.find()
+    albums = list(mongo.db.albums.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -115,9 +116,9 @@ def albums():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    #current_date = datetime.datetime.today()
-    #dateobject = datetime.date.today()
-    #current_date = datetime.datetime.combine(dateobject, datetime.now())
+    # current_date = datetime.datetime.today()
+    # dateobject = datetime.date.today()
+    # current_date = datetime.datetime.combine(dateobject, datetime.now())
     now = time()
     current_date = ctime(now)
     

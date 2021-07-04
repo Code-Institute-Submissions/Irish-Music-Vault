@@ -2,20 +2,28 @@
 
 {% block content %}
  <section class="main-content">
-<div class="row">
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel green lighten-5 z-depth-5">
-           <h3 class="center-align black-text text-darken-3 profile">
-               My Profile
-           </h3>
-           <h5 class="profile">My Details:</h5>
-           <span>Username: {{ username.capitalize()}}</span><br>
-           <span>Email: {{ email }}</span><br>
-           <span>Total Uploads: {{ count }}</span>
-           <span></span>
-        </div>
-    </div>
-</div>
+     <div class="row">
+         <div class="col s12 m8 offset-m2">
+             <div class="card-panel green lighten-5 z-depth-5">
+                 <h3 class="center-align black-text text-darken-3 profile">
+                     My Profile<br>{{ username.capitalize() }}
+                 </h3>
+                 <h5 class="profile">My Details:</h5>
+                 <span>Username: {{ username.capitalize()}}</span><br>
+                 <span>Email: {{ email }}</span><br>
+                 <span>Total Uploads: {{ count }}</span><br>
+                 <span>Highest Rated Uploads:</span><br><br>
+                 <ol>
+                     {% for album in albums %}
+                     {% if album.created_by == session["user"] and 
+                      album.rating == "5" %}
+                      <li><span class="album-list">{{ album.album_name }}, by {{ album.band_name }} </span></li>
+                     {% endif %}
+                     {% endfor %}
+                  </ol>
+             </div>
+         </div>
+     </div>
 <div class="row">
     <div class="col s12 m8 offset-m2">
              <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m8 offset-m2 center-align">
