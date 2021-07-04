@@ -25,12 +25,6 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/login_home")
-def login_home():
-    albums = list(mongo.db.albums.find())
-    return render_template("login_home.html", albums=albums)
-
-
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
@@ -55,6 +49,15 @@ def registration():
         flash("Registration Successful")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("registration.html")
+
+
+@app.route("/login_home")
+def login_home():
+    albums = list(mongo.db.albums.find())
+    if session["user"]:
+        return render_template("login_home.html", albums=albums)
+    else:
+        return render_template("home.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -91,13 +94,14 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    count = mongo.db.albums.find({"created_by": session["user"]}).count()
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
     albums = mongo.db.albums.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username, albums=albums, email=email)
+        return render_template("profile.html", username=username, albums=albums, email=email, count=count)
 
     return redirect(url_for("login"))
 

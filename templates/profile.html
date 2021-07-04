@@ -17,9 +17,11 @@
 <div class="row">
     <div class="col s12 m8 offset-m2">
              <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m8 offset-m2 center-align">
-                <h3 class="profile">My Uploads</h3>
+                
+                <h3 class="profile">{{ username.capitalize() }}'s Uploads ({{ count }})</h3>
                 {% for album in albums %}
                   {% if album.created_by == session["user"] %}
+                        
                         <h2 class="profile"><strong>{{ album.band_name }}</strong></h2>
                         <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image">
                         <h4 class="profile"><strong>{{ album.album_name }}</strong></h4>
@@ -27,8 +29,7 @@
                         <h6 class="profile">{{ album.genre_name }}</h6>
                         <a class="profile" href="{{ album.website }}" target="_blank">Website</a>
                         <p class="profile">Uploaded on, {{ album.created_at }}</p>
-                    
-                    {% endif %}
+                  {% endif %}
               {% endfor %}
             </div>
         </div>

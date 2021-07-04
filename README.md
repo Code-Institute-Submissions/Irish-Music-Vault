@@ -32,6 +32,7 @@ The site uses two fonts.
 
 # Bugs
 1. On the albums.html page, when trying to loop over the 'genre_name' key within my 'genres' collection I was unable to use the same 'for loop' twice. This is because the variable 'genres' that I had assigned the 'mongo.db.genres.find()' method to within the app.py file can only 'unpack' the data from the mongoDB database once. This was fixed by enclosing the method within the list() method (i.e. list(mongo.db.genres.find()) ) to convert the returned data into a list object. The data can then be rendered more than once.
+2. When leaving my computer for some time so that I needed to reload both my editor enviornment and my app in the browser, if I was still logged in as a user on my site I would land on the home page for a non logged-in user as this was the default home page. To fix this I used an if, else statement in the login_home function in order to go to the correct home page if was still logged in.
 
 # Deployment
 
