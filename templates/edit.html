@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="center-align title">Edit Upload</h3>
+
+<div class="row">
+    <form action="{{ url_for('edit', album_id=album._id) }}" method="POST">
+    <div class="row">
+    <div class="input-field col s6 offset-s3 center-align">
+      <input id="band_name" name="band_name" type="text" class="validate input-fields" required>
+      <label class="active input-fields" for="band_name">Band Name</label>
+    </div>
+    </div>
+    <div class="row">
+    <div class="input-field col s6 offset-s3 center-align">
+        <input id="album_name" name="album_name" type="text" class="validate input-fields" required>
+        <label class="active input-fields" for="album_name">Album Name</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3 center-align">
+            <select id="genre_name" name="genre_name" class="validate" required>
+              <option class="input-fields" disabled selected>Choose one</option>
+              {% for genre in genres %}
+              <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+              {% endfor %}
+            </select>
+            <label for="genre_name">Choose a genre</label>
+          </div>
+      </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+        <input id="release_date" name="release_date" type="number" min="1900" max="2050" minlength="4" 
+          maxlength="4" step="1" value="2021" class="validate input-fields" required>
+        <label class="active input-fields" for="release_date">Year of Release</label>
+      </div>
+    </div>
+    <!--<div class="row">
+        <div class="input-field col s6 offset-s3">
+            <span class="input-fields grey-text text-darken-5">Released in 2021?</span>
+            <div class="switch">
+                <label for="this_year">
+                  No
+                  <input type="checkbox" id="this_year" name="this_year">
+                  <span class="lever"></span>
+                  Yes
+                </label>
+              </div>
+        </div>
+    </div>-->
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+        <input id="album_image" name="album_image" type="text" class="validate input-fields" placeholder="Add image url">
+        <label class="active input-fields" for="album_image">Album Image</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3 center-align">
+            <input id="website" name="website" type="text" class="validate input-fields" placeholder="Add website url">
+            <label class="active input-fields" for="website">Website</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3 center-align">
+            <input id="personnel" name="personnel" type="text" class="validate input-fields" placeholder="Add band members and instruments played">
+            <label class="active input-fields" for="personnel">Personnel</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6 offset-s3 center-align">
+            <input id="songs" name="songs" type="text" class="validate input-fields">
+            <label class="active input-fields" for="songs">Album Track List</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
+          <label class="active input-fields" for="created_at"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+        <select id="rating" name="rating">
+          <option value="" disabled selected>Rate This Album</option>
+          {% for number in numbers %}
+          <option value="{{ number }}">{{ number }}</option>
+          {% endfor %}
+        </select>
+        <label for="rating">Rate This Album between 1 - 5</label>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button type="submit" class="btn-large green darken-2 sub-button text-shadow">
+            <i class="fas fa-edit"></i> Edit Album
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

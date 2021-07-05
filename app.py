@@ -146,6 +146,14 @@ def upload():
     return render_template("upload.html", genres=genres, numbers=numbers)
 
 
+@app.route("/edit/<album_id>", methods=["GET", "POST"])
+def edit(album_id):
+    album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
+
+    genres = mongo.db.genres.find().sort("genre_name", 1)
+    return render_template("edit.html", album=album, genres=genres)
+
+
 @app.route("/logout")
 def logout():
     # Remove user from session cookies
