@@ -129,7 +129,7 @@ def upload():
             "album_name": request.form.get("album_name"),
             "genre_name": request.form.get("genre_name"),
             "release_date": request.form.get("release_date"),
-            "this_year": this_year,
+            # "this_year": this_year,
             "album_image": request.form.get("album_image"),
             "personnel": request.form.getlist("personnel"),
             "songs": request.form.getlist("songs"),

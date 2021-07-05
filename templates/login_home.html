@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<span class="home-headers-top">Recently Added Albums By Users</span>
+<span class="home-headers-top">Uploads Released in 2021</span>
 <div class="row">
     <div class="col m2">
       <div class="flex-container">
       {% for album in albums %}
-        {% if album.this_year == "on" %}
+            {% if album.release_date == "2021" %}
       <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
         {% endif %}
       {% endfor %}
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <span class="home-headers">Highest Rated Albums</span>
+  <span class="home-headers">Uploads rated 5/5</span>
 <div class="row">
     <div class="col m2">
       <div class="flex-container">

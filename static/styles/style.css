@@ -119,6 +119,10 @@ input {
     height: 300px;
 }
 
+.btn-small {
+    margin: 10px;
+}
+
 /* ----------------------------------------------upload.html*/
 
 .input-fields{

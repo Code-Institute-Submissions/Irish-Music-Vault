@@ -11,8 +11,8 @@
                  <h5 class="profile">My Details:</h5>
                  <span>Username: {{ username.capitalize()}}</span><br>
                  <span>Email: {{ email }}</span><br>
-                 <span>Total Uploads: {{ count }}</span><br>
-                 <span>Highest Rated Uploads:</span><br><br>
+                 <span>Total Uploads: {{ count }}</span><br><br>
+                 <span>Uploads rated 5/5:</span>
                  <ol>
                      {% for album in albums %}
                      {% if album.created_by == session["user"] and 
