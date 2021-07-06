@@ -22,7 +22,11 @@
             <select id="genre_name" name="genre_name" class="validate" required>
               <option class="input-fields" disabled selected>Choose one</option>
               {% for genre in genres %}
-              <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                  {% if genre.genre_name == album.genre_name %}
+                  <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                  {% else %}
+                  <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                  {% endif %}
               {% endfor %}
             </select>
             <label for="genre_name">Choose a genre</label>

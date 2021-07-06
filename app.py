@@ -94,7 +94,8 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    count = mongo.db.albums.find({"created_by": session["user"]}).count()
+    # count = mongo.db.albums.find({"created_by": session["user"]}).count()
+    count = mongo.db.albums.count_documents({"created_by": session["user"]})
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
     albums = list(mongo.db.albums.find())
     username = mongo.db.users.find_one(
@@ -115,14 +116,11 @@ def albums():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    # current_date = datetime.datetime.today()
-    # dateobject = datetime.date.today()
-    # current_date = datetime.datetime.combine(dateobject, datetime.now())
     now = time()
     current_date = ctime(now)
-    
+
     if request.method == "POST":
-        this_year = "on" if request.form.get("this_year") else "off"
+        # this_year = "on" if request.form.get("this_year") else "off"
         album = {
             "band_name": request.form.get("band_name"),
             "album_name": request.form.get("album_name"),
