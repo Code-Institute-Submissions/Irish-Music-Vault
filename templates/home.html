@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if session['user'] %}
+<span class="home-headers-top">Uploads Released in 2021</span>
+<div class="row">
+    <div class="col m2">
+      <div class="flex-container">
+      {% for album in albums %}
+            {% if album.release_date == "2021" %}
+      <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
+            {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+</div>
+{% else %}
 <div class="row">
     <div class="col m2">
       <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-1.jpeg') }}" alt="Fontaines DC">
@@ -20,6 +34,7 @@
       <div class="col m2">
         <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-10.jpg') }}" alt="The Dubliners, Revolution">
       </div>
+      {% endif %}
 </div>
 
 <div class="row">
@@ -37,6 +52,20 @@
     </div>
   </div>
 
+  {% if session['user'] %}
+  <span class="home-headers">Uploads rated 5/5</span>
+<div class="row">
+    <div class="col m2">
+      <div class="flex-container">
+      {% for album in albums %}
+          {% if album.rating == "5" %}
+      <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
+          {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+</div>
+{% else %}
 <div class="row">
     <div class="col m2">
       <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-17.jpg') }}" alt="Johnny The Fox by Thin Lizzy">
@@ -56,5 +85,6 @@
       <div class="col m2">
         <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-2.jpg') }}" alt="The Dubliners In Concert">
       </div>
+      {% endif %}
 </div>
 {% endblock %}

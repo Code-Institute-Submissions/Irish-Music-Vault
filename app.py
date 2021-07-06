@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    albums = list(mongo.db.albums.find())
+    return render_template("home.html", albums=albums)
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -57,9 +58,7 @@ def login_home():
     albums = list(mongo.db.albums.find())
     if session["user"]:
         return render_template("login_home.html", albums=albums)
-    else:
-        return render_template("home.html")
-
+    
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
