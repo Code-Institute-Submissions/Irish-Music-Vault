@@ -29,10 +29,11 @@ The site uses two fonts.
 
 # Testing
 1. When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
+2. I wanted to have a different set of albums showing on the home page for logged in users. I first inplemented a new homepage called login_home.html which was a copy of the home.html page. Here I showed the different albums for a logged in user using 'if' statements. However after being away from the project for some time, when returning to my work using the 'python3 app.py' method, if I was still logged in on the site, the default home.html from the 'home' view would render as the landing page. I fixed this by removing the login_home.html page and adding the if statements to the home.html page.
+
 
 # Bugs
 1. On the albums.html page, when trying to loop over the 'genre_name' key within my 'genres' collection I was unable to use the same 'for loop' twice. This is because the variable 'genres' that I had assigned the 'mongo.db.genres.find()' method to within the app.py file can only 'unpack' the data from the mongoDB database once. This was fixed by enclosing the method within the list() method (i.e. list(mongo.db.genres.find()) ) to convert the returned data into a list object. The data can then be rendered more than once.
-2. When leaving my computer for some time so that I needed to reload both my editor enviornment and my app in the browser, if I was still logged in as a user on my site I would land on the home page for a non logged-in user as this was the default home page. To fix this I used an if, else statement in the login_home function in order to go to the correct home page if was still logged in.
 
 # Deployment
 
