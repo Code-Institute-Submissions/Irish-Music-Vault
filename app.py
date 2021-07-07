@@ -147,6 +147,26 @@ def upload():
 
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
+    current_date = time.strftime("%d-%m-%y")
+    if request.method == "POST":
+        # this_year = "on" if request.form.get("this_year") else "off"
+        update = {
+            "band_name": request.form.get("band_name"),
+            "album_name": request.form.get("album_name"),
+            "genre_name": request.form.get("genre_name"),
+            "release_date": request.form.get("release_date"),
+            # "this_year": this_year,
+            "album_image": request.form.get("album_image"),
+            "personnel": request.form.getlist("personnel"),
+            "songs": request.form.getlist("songs"),
+            "website": request.form.get("website"),
+            "created_by": session["user"],
+            "created_at": current_date,
+            "rating": request.form.get("rating")
+        }
+        mongo.db.albums.update({"_id": ObjectId(album_id)}, update)
+        flash("Album listing updated")
+        
     album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
     numbers = [1, 2, 3, 4, 5]
     genres = mongo.db.genres.find().sort("genre_name", 1)
