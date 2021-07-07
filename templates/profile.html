@@ -15,12 +15,12 @@
                  <span>Uploads rated 5/5:</span>
                  <ol>
                      {% for album in albums %}
-                     {% if album.created_by == session["user"] and 
+                      {% if album.created_by == session["user"] and 
                       album.rating == "5" %}
-                      <li><span class="album-list">{{ album.album_name }}, by {{ album.band_name }} </span></li>
+                       <li><span class="album-list">{{ album.album_name }}, by {{ album.band_name }}</span></li>
                      {% endif %}
                      {% endfor %}
-                  </ol>
+                </ol>
              </div>
          </div>
      </div>
@@ -38,7 +38,7 @@
                         <h6 class="profile">{{ album.release_date }}</h6>
                         <h6 class="profile">{{ album.genre_name }}</h6>
                         <a class="profile" href="{{ album.website }}" target="_blank">Website</a>
-                        <p class="profile">Uploaded on, {{ album.created_at }}</p>
+                        <p class="profile">Uploaded on {{ album.created_at }}</p>
                   {% endif %}
               {% endfor %}
             </div>

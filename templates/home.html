@@ -7,11 +7,11 @@
     <div class="col m2">
       <div class="flex-container">
       {% for album in albums %}
-            {% if album.release_date == "2021" %}
+            {% if album.on_home_page == "True" %} 
                <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
             {% endif %}
-      {% endfor %}
-      </div>
+      {% endfor %} 
+      </div> <!--and album.on_home_page == "True"-->
     </div>
 </div>
 {% else %}

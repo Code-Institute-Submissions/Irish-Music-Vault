@@ -1,5 +1,6 @@
 import os
-from time import time, ctime
+import time
+# from time import time, ctime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -100,7 +101,7 @@ def profile(username):
     albums = list(mongo.db.albums.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    
     if session["user"]:
         return render_template("profile.html", username=username, albums=albums, email=email, count=count)
 
@@ -116,8 +117,9 @@ def albums():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    now = time()
-    current_date = ctime(now)
+    # now = time()
+    # current_date = ctime(now)
+    current_date = time.strftime("%d-%m-%y")
 
     if request.method == "POST":
         # this_year = "on" if request.form.get("this_year") else "off"
@@ -146,9 +148,9 @@ def upload():
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
     album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
-
+    numbers = [1, 2, 3, 4, 5]
     genres = mongo.db.genres.find().sort("genre_name", 1)
-    return render_template("edit.html", album=album, genres=genres)
+    return render_template("edit.html", album=album, genres=genres, numbers=numbers)
 
 
 @app.route("/logout")
