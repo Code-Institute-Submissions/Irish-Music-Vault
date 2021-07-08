@@ -79,19 +79,14 @@
     </div>
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
-          <label class="active input-fields" for="created_at"></label>
+          <input id="rating" name="rating" type="text" class="validate input-fields" value="{{ album.rating }}">
+          <label class="active input-fields" for="rating">Rating</label>
       </div>
-    </div>
+  </div>
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-        <select id="rating" name="rating">
-          <option value="" disabled>Rate This Album</option>
-          {% for number in numbers %}
-          <option value="{{ number }}" selected>{{ number }}</option>
-          {% endfor %}
-        </select>
-        <label for="rating">Rate This Album between 1 - 5</label>
+          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
+          <label class="active input-fields" for="created_at"></label>
       </div>
     </div>
       <div class="row">
