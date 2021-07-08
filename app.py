@@ -160,7 +160,8 @@ def edit(album_id):
             "personnel": request.form.getlist("personnel"),
             "songs": request.form.getlist("songs"),
             "website": request.form.get("website"),
-            "created_by": session["user"],
+            "created_by": session['user'],
+            "edited_by": session["user"],
             "created_at": current_date,
             "rating": request.form.get("rating")
         }
