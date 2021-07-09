@@ -161,7 +161,6 @@ def edit(album_id):
             "songs": request.form.getlist("songs"),
             "website": request.form.get("website"),
             "created_by": session['user'],
-            "edited_by": session["user"],
             "created_at": current_date,
             "rating": request.form.get("rating")
         }
@@ -172,6 +171,13 @@ def edit(album_id):
     numbers = [1, 2, 3, 4, 5]
     genres = mongo.db.genres.find().sort("genre_name", 1)
     return render_template("edit.html", album=album, genres=genres, numbers=numbers)
+
+
+@app.route("/delete/<album_id>")
+def delete(album_id):
+    mongo.db.albums.remove({"_id": ObjectId(album_id)})
+    flash("Your listing was removed")
+    return redirect(url_for("albums"))
 
 
 @app.route("/logout")

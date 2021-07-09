@@ -39,7 +39,7 @@
                         <h6 class="profile">{{ album.genre_name }}</h6>
                         <a class="profile" href="{{ album.website }}" target="_blank">Website</a>
                         <p class="profile">Uploaded on {{ album.created_at }}</p>
-                        <a href="" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>
+                        <a href="{{ url_for('delete', album_id=album._id)}}" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>
                         <a href="{{ url_for('edit', album_id=album._id) }}" class="btn-small blue lighten-3"><i class="fas fa-edit"></i></a>
                   {% endif %}
               {% endfor %}
