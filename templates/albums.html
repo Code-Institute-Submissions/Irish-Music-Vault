@@ -3,6 +3,22 @@
 
 <div class="row">
   <div class="col s2 m2 genres">
+    <!--Code for search bar-->
+    <div class="row card-panel black lighten-2">
+      <form action="{{ url_for('search') }}" method="post" class="col s-2">
+        <div class="row valign-wrapper white-text text-lighten-3">
+          <div class="input-field col s-2">
+            <i class="fas fa-search prefix white-text text-lighten-3"></i>
+            <input type="text" name="search" id="search" class="validate" required>
+            <label for="search"></label><br>
+          <a href="{{ url_for('albums') }}" class="white btn text-shadow">Reset</a><br>
+            <button type="submit" class="light-green darken-3 btn text-shadow right-align">
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
       <h2 class="teal-text text-darken-4">2021 releases</h2>
       <ul>
         {% for genre in genres %}
@@ -19,7 +35,7 @@
     <h3 class="center-align card-title">Recently Added Albums</h3>
       <!--<div class="col s12 m8 offset-m2">-->
         {% for album in albums %}
-        <!--<div class="row">-->
+       <!-- <div class="row">-->
           <div class="col s10 m10 albums">
         <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m8 offset-m2 center-align">
             <h2><strong>{{ album.band_name }}</strong></h2>
@@ -30,9 +46,9 @@
             <a href="{{ album.website }}" target="_blank">Website</a>
             <p>Uploaded by {{ album.created_by.capitalize() }} </p>
             <p>Uploaded on {{ album.created_at }}</p>
-            <a href="{{ url_for('edit', album_id=album._id) }}" class="btn-small blue lighten-3"><i class="fas fa-edit"></i></a>
             {% if session.user|lower == album.created_by|lower %}
             <a href="{{ url_for('delete', album_id=album._id) }}" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>
+            <a href="{{ url_for('edit', album_id=album._id) }}" class="btn-small blue lighten-3"><i class="fas fa-edit"></i></a>
             {% endif %}
             </div>
           </div>
