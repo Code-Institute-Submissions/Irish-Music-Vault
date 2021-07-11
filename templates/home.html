@@ -1,90 +1,89 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} 
+{% block content %} 
 {% if session['user'] %}
 <span class="home-headers-top">Uploads Released in 2021</span>
 <div class="row">
     <div class="col m2">
-      <div class="flex-container">
-      {% for album in albums %}
-            {% if album.on_home_page == "True" %} 
-               <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
-            {% endif %}
-      {% endfor %} 
-      </div> <!--and album.on_home_page == "True"-->
+        <div class="flex-container">
+            {% for album in albums %} 
+              {% if album.home_page_top == "True" and album.release_date == "2021" %}
+            <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image" />
+              {% endif %} 
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% else %}
 <div class="row">
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-1.jpeg') }}" alt="Fontaines DC">
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-1.jpeg') }}" alt="Fontaines DC" />
     </div>
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-8.jpg') }}" alt="Agreements by Matt Halpin">
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-8.jpg') }}" alt="Agreements by Matt Halpin" />
     </div>
     <div class="col m2">
-      <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-3.jpg') }}" alt="Organics, Zeitgeist">
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-3.jpg') }}" alt="Organics, Zeitgeist" />
     </div>
     <div class="col m2">
-        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-4.jpg') }}" alt="u2, Joshua Tree">
-      </div>
-      <div class="col m2">
-        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-7.jpg') }}" alt="Justin Carroll's Togetherness">
-      </div>
-      <div class="col m2">
-        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-10.jpg') }}" alt="The Dubliners, Revolution">
-      </div>
-      {% endif %}
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-4.jpg') }}" alt="u2, Joshua Tree" />
+    </div>
+    <div class="col m2">
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-7.jpg') }}" alt="Justin Carroll's Togetherness" />
+    </div>
+    <div class="col m2">
+        <img class="home-images-top z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-10.jpg') }}" alt="The Dubliners, Revolution" />
+    </div>
+    {% endif %}
 </div>
 
 <div class="row">
     <div class="col s12 m6">
-      <div class="card card-home black darken-4 z-depth-5">
-        <div class="card-content green-text text-lighten-2">
-          <span class="card-title center main-header">Irish Music Vault</span>
-          <p class="center main green-text text-lighten-4">
-              This project aims to become a fully comprehensive database of albums by Irish bands. Feel free to register
-              your own profile and start adding albums to the ever growing list.<br><br>
-              In a band and have your own album? Add it!
-          </p>
+        <div class="card card-home black darken-4 z-depth-5">
+            <div class="card-content green-text text-lighten-2">
+                <span class="card-title center main-header">Irish Music Vault</span>
+                <p class="center main green-text text-lighten-4">
+                    This project aims to become a fully comprehensive database of albums by Irish bands. Feel free to register your own profile and start adding albums to the ever growing list.<br />
+                    <br />
+                    In a band and have your own album? Add it!
+                </p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  {% if session['user'] %}
-  <span class="home-headers">Uploads rated 5/5</span>
+{% if session['user'] %}
+<span class="home-headers">Uploads rated 5/5</span>
 <div class="row">
     <div class="col m2">
-      <div class="flex-container">
-      {% for album in albums %}
-          {% if album.rating == "5" %}
-      <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
-          {% endif %}
-      {% endfor %}
-      </div>
+        <div class="flex-container">
+            {% for album in albums %} 
+              {% if album.rating == "5" and album.home_page_bottom == "True" %}
+            <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image" />
+              {% endif %} 
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% else %}
 <div class="row">
     <div class="col m2">
-      <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-17.jpg') }}" alt="Johnny The Fox by Thin Lizzy">
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-17.jpg') }}" alt="Johnny The Fox by Thin Lizzy" />
     </div>
     <div class="col m2">
-      <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-15.jpg') }}" alt="Vagabonds of the Western World by Thin Lizzy">
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-15.jpg') }}" alt="Vagabonds of the Western World by Thin Lizzy" />
     </div>
     <div class="col m2">
-      <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-19.jpg') }}" alt="Aslan, Loving Me Lately">
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-19.jpg') }}" alt="Aslan, Loving Me Lately" />
     </div>
     <div class="col m2">
-        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-14.jpg') }}" alt="Yurodny, Evenset">
-      </div>
-      <div class="col m2">
-        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-12.jpg') }}" alt="John Moriarty, Echos">
-      </div>
-      <div class="col m2">
-        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-2.jpg') }}" alt="The Dubliners In Concert">
-      </div>
-      {% endif %}
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-14.jpg') }}" alt="Yurodny, Evenset" />
+    </div>
+    <div class="col m2">
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-12.jpg') }}" alt="John Moriarty, Echos" />
+    </div>
+    <div class="col m2">
+        <img class="home-images z-depth-5" src="{{ url_for('static', filename='images/home-page-hero-2.jpg') }}" alt="The Dubliners In Concert" />
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

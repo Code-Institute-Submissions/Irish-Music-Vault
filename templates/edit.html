@@ -1,90 +1,85 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %} 
 {% block content %}
+
 <h3 class="center-align title">Edit Upload</h3>
 
 <div class="row">
     <form action="{{ url_for('edit', album_id=album._id) }}" method="POST">
-    <div class="row">
-    <div class="input-field col s6 offset-s3 center-align">
-      <input id="band_name" name="band_name" type="text" class="validate input-fields" value="{{ album.band_name }}" required>
-      <label class="active input-fields" for="band_name">Band Name</label>
-    </div>
-    </div>
-    <div class="row">
-    <div class="input-field col s6 offset-s3 center-align">
-        <input id="album_name" name="album_name" type="text" class="validate input-fields" value="{{ album.album_name }}" required>
-        <label class="active input-fields" for="album_name">Album Name</label>
-      </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 offset-s3 center-align">
-            <select id="genre_name" name="genre_name" class="validate" required>
-              <option class="input-fields" disabled>Choose one</option>
-              {% for genre in genres %}
-                  {% if genre.genre_name == album.genre_name %}
-                  <option class="input-fields" value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
-                  {% else %}
-                  <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
-                  {% endif %}
-              {% endfor %}
-            </select>
-            <label for="genre_name">Choose a genre</label>
-          </div>
-      </div>
-    <div class="row">
-      <div class="input-field col s6 offset-s3 center-align">
-        <input id="release_date" name="release_date" type="text" minlength="4" 
-          maxlength="4" class="validate input-fields" value="{{ album.release_date }}" required>
-        <label class="active input-fields" for="release_date">Year of Release</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6 offset-s3 center-align">
-        <input id="album_image" name="album_image" type="text" class="validate input-fields" value="{{ album.album_image }}" placeholder="Add image url">
-        <label class="active input-fields" for="album_image">Album Image</label>
-      </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 offset-s3 center-align">
-            <input id="website" name="website" type="text" class="validate input-fields" value="{{ album.website }}">
-            <label class="active input-fields" for="website">Website</label>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="band_name" name="band_name" type="text" class="validate input-fields" value="{{ album.band_name }}" required />
+                <label class="active input-fields" for="band_name">Band Name</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 offset-s3 center-align">
-            <input id="personnel" name="personnel" type="text" class="validate input-fields" value="{{ album.personnel }}">
-            <label class="active input-fields" for="personnel">Personnel</label>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="album_name" name="album_name" type="text" class="validate input-fields" value="{{ album.album_name }}" required />
+                <label class="active input-fields" for="album_name">Album Name</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6 offset-s3 center-align">
-            <input id="songs" name="songs" type="text" class="validate input-fields" value="{{ album.songs }}">
-            <label class="active input-fields" for="songs">Album Track List</label>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <select id="genre_name" name="genre_name" class="validate" required>
+                    <option class="input-fields" disabled>Choose one</option>
+                    {% for genre in genres %} {% if genre.genre_name == album.genre_name %}
+                    <option class="input-fields" value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
+                    {% else %}
+                    <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+                    {% endif %} {% endfor %}
+                </select>
+                <label for="genre_name">Choose a genre</label>
+            </div>
         </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6 offset-s3 center-align">
-          <input id="rating" name="rating" type="text" class="validate input-fields" value="{{ album.rating }}">
-          <label class="active input-fields" for="rating">Rating</label>
-      </div>
-  </div>
-    <div class="row">
-      <div class="input-field col s6 offset-s3 center-align">
-          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
-          <label class="active input-fields" for="created_at"></label>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col s12 center-align">
-          <!--Button to cancel edited form-->
-          <a href="{{ url_for('albums') }}" class="btn-large sub-button red darken-5 text-shadow">Cancel Edit <i class="fas fa-times-circle"></i></a>
-          <!--Button to submit edited form-->
-          <button type="submit" class="btn-large green darken-5 sub-button text-shadow">
-            <i class="fas fa-edit"></i> Edit Album
-          </button>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="release_date" name="release_date" type="text" minlength="4" maxlength="4" class="validate input-fields" value="{{ album.release_date }}" required />
+                <label class="active input-fields" for="release_date">Year of Release</label>
+            </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="album_image" name="album_image" type="text" class="validate input-fields" value="{{ album.album_image }}" placeholder="Add image url" />
+                <label class="active input-fields" for="album_image">Album Image</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="website" name="website" type="text" class="validate input-fields" value="{{ album.website }}" />
+                <label class="active input-fields" for="website">Website</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="personnel" name="personnel" type="text" class="validate input-fields" value="{{ album.personnel }}" />
+                <label class="active input-fields" for="personnel">Personnel</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="songs" name="songs" type="text" class="validate input-fields" value="{{ album.songs }}" />
+                <label class="active input-fields" for="songs">Album Track List</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="rating" name="rating" type="text" class="validate input-fields" value="{{ album.rating }}" />
+                <label class="active input-fields" for="rating">Rating</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input id="created_at" name="created_at" type="text" class="validate input-fields invisible" />
+                <label class="active input-fields" for="created_at"></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <!--Button to cancel edited form-->
+                <a href="{{ url_for('albums') }}" class="btn-large sub-button red darken-5 text-shadow">Cancel Edit <i class="fas fa-times-circle"></i></a>
+                <!--Button to submit edited form-->
+                <button type="submit" class="btn-large green darken-5 sub-button text-shadow"><i class="fas fa-edit"></i> Edit Album</button>
+            </div>
+        </div>
     </form>
-  </div>
+</div>
 {% endblock %}

@@ -1,43 +1,45 @@
-{% extends "base.html" %}
+<!-- DELETE---   NO LONGER IN USE -->
 
+
+{% extends "base.html" %} 
 {% block content %}
 <span class="home-headers-top">Uploads Released in 2021</span>
 <div class="row">
     <div class="col m2">
-      <div class="flex-container">
-      {% for album in albums %}
-            {% if album.release_date == "2021" %}
-      <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image">
-        {% endif %}
-      {% endfor %}
-      </div>
+        <div class="flex-container">
+            {% for album in albums %} 
+              {% if album.release_date == "2021" and album.on_home_page == "True" %}
+            <img class="login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image" />
+              {% endif %} 
+            {% endfor %}
+        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col s12 m6">
-      <div class="card card-home black darken-4 z-depth-5">
-        <div class="card-content green-text text-lighten-2">
-          <span class="card-title center main-header">Irish Music Vault</span>
-          <p class="center main green-text text-lighten-4">
-              This project aims to become a fully comprehensive database of albums by Irish bands. Feel free to register
-              your own profile and start adding albums to the ever growing list.<br><br>
-              In a band and have your own album? Add it!
-          </p>
+        <div class="card card-home black darken-4 z-depth-5">
+            <div class="card-content green-text text-lighten-2">
+                <span class="card-title center main-header">Irish Music Vault</span>
+                <p class="center main green-text text-lighten-4">
+                    This project aims to become a fully comprehensive database of albums by Irish bands. Feel free to register your own profile and start adding albums to the ever growing list.<br />
+                    <br />
+                    In a band and have your own album? Add it!
+                </p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <span class="home-headers">Uploads rated 5/5</span>
+</div>
+<span class="home-headers">Uploads rated 5/5</span>
 <div class="row">
     <div class="col m2">
-      <div class="flex-container">
-      {% for album in albums %}
-          {% if album.rating == "5" %}
-      <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image">
-          {% endif %}
-      {% endfor %}
-      </div>
+        <div class="flex-container">
+            {% for album in albums %} 
+              {% if album.rating == "5" %}
+            <img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image" />
+              {% endif %} 
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
