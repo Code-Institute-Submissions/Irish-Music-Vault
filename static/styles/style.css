@@ -110,9 +110,13 @@ input {
 
 /* ----------------------------------------------albums.html*/
 
-.genres {
+/*.genres {
     height: 4000px;
     border-right: 2px solid black;  
+} */
+
+.genres {
+    display: flex;
 }
 
 .card-title {
@@ -124,6 +128,7 @@ input {
     font-family: "Yrsa", sans-serif;
 }
 
+
 .album-card-image {
     width: 300px;
     height: 300px;
@@ -133,12 +138,8 @@ input {
     margin: 10px;
 }
 
-.search-bar {
-    background-color: #e8f5e9;
-}
-
 .modal-content {
-  background-color: black;;
+  background-color: black;
 }
 
 .modal-text {
@@ -148,6 +149,17 @@ input {
 .modal-close {
     margin: 10px;
     font-size: 1.5rem;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.inline li {
+    display: inline;
+    margin: 2.5rem;
+    font-size: 2rem;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 /* ----------------------------------------------upload.html*/
