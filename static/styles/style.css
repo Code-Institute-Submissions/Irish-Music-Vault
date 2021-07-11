@@ -123,6 +123,23 @@ input {
     margin: 10px;
 }
 
+.search-bar {
+    background-color: #e8f5e9;
+}
+
+.modal-content {
+  background-color: black;;
+}
+
+.modal-text {
+    font-size: 2rem;
+}
+
+.modal-close {
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
 /* ----------------------------------------------upload.html*/
 
 .input-fields{

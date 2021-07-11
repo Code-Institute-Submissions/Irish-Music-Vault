@@ -4,14 +4,14 @@
 <div class="row">
   <div class="col s2 m2 genres">
     <!--Code for search bar-->
-    <div class="row card-panel black lighten-2">
+    <div class="row card-panel search-bar">
       <form action="{{ url_for('search') }}" method="post" class="col s-2">
-        <div class="row valign-wrapper white-text text-lighten-3">
+        <div class="row">
           <div class="input-field col s-2">
-            <i class="fas fa-search prefix white-text text-lighten-3"></i>
-            <input type="text" name="search" id="search" class="validate" required>
+            <i class="fas fa-search prefix black-text text-lighten-3"></i>
+            <input type="text" name="search" id="search" class="validate black-text text-lighten-3" required>
             <label for="search"></label><br>
-          <a href="{{ url_for('albums') }}" class="white btn text-shadow">Reset</a><br>
+          <a href="{{ url_for('albums') }}" class=" btn text-shadow">Reset</a><br>
             <button type="submit" class="light-green darken-3 btn text-shadow right-align">
               Search
             </button>
@@ -44,12 +44,12 @@
             <h6>{{ album.release_date }}</h6>
             <h6>{{ album.genre_name }}</h6>
             <a href="{{ album.website }}" target="_blank">Website</a>
-            <p>Uploaded by {{ album.created_by.capitalize() }} </p>
-            <p>Uploaded on {{ album.created_at }}</p>
+            <p>Uploaded by {{ album.created_by.capitalize() }} on {{ album.created_at }}</p>
             {% if session.user|lower == album.created_by|lower %}
-            <a href="{{ url_for('delete', album_id=album._id) }}" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>
             <a href="{{ url_for('edit', album_id=album._id) }}" class="btn-small blue lighten-3"><i class="fas fa-edit"></i></a>
+            <a href="{{ url_for('delete', album_id=album._id) }}" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>
             {% endif %}
+
             </div>
           </div>
       {% endfor %}

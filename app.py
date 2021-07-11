@@ -125,23 +125,18 @@ def search():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
-    # now = time()
-    # current_date = ctime(now)
     current_date = time.strftime("%d-%m-%y")
-
     if request.method == "POST":
-        # this_year = "on" if request.form.get("this_year") else "off"
         album = {
             "band_name": request.form.get("band_name"),
             "album_name": request.form.get("album_name"),
             "genre_name": request.form.get("genre_name"),
             "release_date": request.form.get("release_date"),
-            # "this_year": this_year,
             "album_image": request.form.get("album_image"),
             "personnel": request.form.getlist("personnel"),
             "songs": request.form.getlist("songs"),
             "website": request.form.get("website"),
-            "created_by": session["user"],
+            "created_by": session['user'],
             "created_at": current_date,
             "rating": request.form.get("rating")
         }
@@ -157,13 +152,11 @@ def upload():
 def edit(album_id):
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
-        # this_year = "on" if request.form.get("this_year") else "off"
         update = {
             "band_name": request.form.get("band_name"),
             "album_name": request.form.get("album_name"),
             "genre_name": request.form.get("genre_name"),
             "release_date": request.form.get("release_date"),
-            # "this_year": this_year,
             "album_image": request.form.get("album_image"),
             "personnel": request.form.getlist("personnel"),
             "songs": request.form.getlist("songs"),
