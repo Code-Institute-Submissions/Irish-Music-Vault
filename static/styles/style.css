@@ -29,6 +29,10 @@ nav {
     height: 4rem;
 }
 
+.brand-logo {
+    margin-left: .5rem;
+}
+
 /* ----------------------------------------------home.html*/
 
 .row .home-images {
