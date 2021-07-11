@@ -45,7 +45,7 @@
             <h6>{{ album.genre_name }}</h6>
             <a href="{{ album.website }}" target="_blank">Website</a>
             <p>Uploaded by {{ album.created_by.capitalize() }} on {{ album.created_at }}</p>
-            {% if session.user|lower == album.created_by|lower %}
+            {% if session.user|lower == album.created_by|lower or session.user|lower == 'admin' %}
             <a href="{{ url_for('edit', album_id=album._id) }}" class="btn-small blue lighten-3"><i class="fas fa-edit"></i></a>
             <!--<a href="{{ url_for('delete', album_id=album._id) }}" class="btn-small red lighten-3"><i class="far fa-trash-alt"></i></a>-->
             <button data-target="delete{{ album._id }}" class="btn-small red lighten-3 modal-trigger"><i class="far fa-trash-alt"></i></button>
