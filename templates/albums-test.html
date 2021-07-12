@@ -23,21 +23,18 @@
                 </div>
             </form>
             <div class="col s-8 genres center-align">
-                <!--<h2 class="teal-text text-darken-4">2021 releases</h2>-->
                 <ul class="inline">
                     {% for genre in genres %}
-                    <li>{{ genre.genre_name }}</li>
+                    <li><a href="#">{{ genre.genre_name }}</a></li>
                     {% endfor %}
                 </ul>
-        </div>
-</div>
-
+            </div>
+       </div>
 
     <h3 class="center-align card-title">Recently Added Albums</h3>
     {% for album in albums %}
-    <div class="row albums-list">
-    <div class="col s8 m6 albums">
-        <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m8 center-align">
+    <div class="row">
+        <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m4 albums center-align">
             <h2><strong>{{ album.band_name }}</strong></h2>
             <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image" />
             <h4><strong>{{ album.album_name }}</strong></h4>
@@ -61,8 +58,8 @@
             {% endif %}
         </div>
     </div>
-</div>
+
+
     {% endfor %}
-</div>
-</div>
+
 {% endblock %}

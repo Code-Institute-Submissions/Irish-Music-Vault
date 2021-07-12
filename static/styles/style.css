@@ -30,7 +30,7 @@ nav {
 }
 
 .brand-logo {
-    margin-left: .5rem;
+    margin-left: 15px;
 }
 
 /* ----------------------------------------------home.html*/
@@ -127,7 +127,6 @@ input {
     height: auto;
     font-family: "Yrsa", sans-serif;
 }
-
 
 .album-card-image {
     width: 300px;
