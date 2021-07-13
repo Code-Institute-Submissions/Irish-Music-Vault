@@ -43,7 +43,6 @@ def registration():
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password")),
-            "avatar": request.form.get("avatar")
         }
         mongo.db.users.insert_one(registration)
 
@@ -95,7 +94,6 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # count = mongo.db.albums.find({"created_by": session["user"]}).count()
     count = mongo.db.albums.count_documents({"created_by": session["user"]})
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
     albums = list(mongo.db.albums.find())

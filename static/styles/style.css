@@ -119,19 +119,30 @@ input {
     display: flex;
 }
 
+.genre-list {
+    color: black;
+}
+
+.band-name {
+    font-family: "Bebas neue", sans-serif;
+    color: black;
+}
+
 .card-title {
     font-family: "Lobster", sans-serif;
+    margin-bottom: 20px;
+    font-size: 3.5rem;
 }
 
 .albums {
-    height: 700px;
+    height: 675px;
     font-family: "Yrsa", sans-serif;
     width: 30%;
     padding: 0;
 }
 
 .card-panel {
-    border: 1px solid black;
+    border: 1px solid green;
 }
 
 .flex-container {

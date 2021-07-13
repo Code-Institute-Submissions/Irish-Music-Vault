@@ -31,7 +31,7 @@
              <div class="card-panel green lighten-3 z-depth-5 white-text text-lighten-2 col s12 m8 offset-m2 center-align">
                 {% for album in albums %}
                   {% if album.created_by == session["user"] %}
-                        <h2 class="profile"><strong>{{ album.band_name }}</strong></h2>
+                        <h2 class="band-name"><strong>{{ album.band_name }}</strong></h2>
                         <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image">
                         <h4 class="profile"><strong>{{ album.album_name }}</strong></h4>
                         <h6 class="profile">{{ album.release_date }}</h6>
