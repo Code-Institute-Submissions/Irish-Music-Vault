@@ -101,12 +101,10 @@
                             <li><a href="{{ url_for('albums') }}" class="text green-text text-lighten-3">Albums List</a></li>
                             <li><a href="{{ url_for('profile', username=session['user']) }}" class="text green-text text-lighten-3">{{ session['user'] }}'s Profile</a></li>
                             <li><a href="{{ url_for('upload') }}" class="text green-text text-lighten-3">Upload</a></li>
-                            <li><a href="{{ url_for('logout') }}" class="text green-text text-lighten-3">Logout</a></li>
                             {% else %}
                             <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
                             <li><a href="{{ url_for('albums') }}" class="text green-text text-lighten-3">Albums List</a></li>
                             <li><a href="{{ url_for('registration') }}" class="text green-text text-lighten-3">Register</a></li>
-                            <li><a href="{{ url_for('login') }}" class="text green-text text-lighten-3">Login</a></li>
                             {% endif %}
                         </ul>
                     </div>

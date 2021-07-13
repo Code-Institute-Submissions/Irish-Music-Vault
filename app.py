@@ -128,6 +128,8 @@ def search():
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     current_date = time.strftime("%d-%m-%y")
+    form = request.form.to_dict()
+    flatForm = request.form.to_dict(flat=False)
     if request.method == "POST":
         album = {
             "band_name": request.form.get("band_name"),
