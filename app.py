@@ -99,9 +99,13 @@ def profile(username):
     albums = list(mongo.db.albums.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    str(username)
+    first_last = username.split(" ")
+    capitalize = [f.capitalize() for f in first_last]
+    capitalized_username = " ".join(capitalize)
     
     if session["user"]:
-        return render_template("profile.html", username=username, albums=albums, email=email, count=count)
+        return render_template("profile.html", username=username, albums=albums, email=email, count=count, capitalized_username=capitalized_username)
 
     return redirect(url_for("login"))
 
