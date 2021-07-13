@@ -124,8 +124,18 @@ input {
 }
 
 .albums {
-    height: auto;
+    height: 700px;
     font-family: "Yrsa", sans-serif;
+    width: 30%;
+    padding: 0;
+}
+
+.card-panel {
+    border: 1px solid black;
+}
+
+.flex-container {
+    display: flex;
 }
 
 .album-card-image {
