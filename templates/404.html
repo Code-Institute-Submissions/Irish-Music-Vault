@@ -1,9 +1,18 @@
 {% extends "base.html" %} 
 {% block content %}
-
-  <h1>Page Not Found</h1>
-  <p>What you were looking for is just not there.
-  <p><a href="{{ url_for('home') }}">go somewhere nice</a>
-
-
+<div class="row">
+<div class="col s12 m6">
+  <h1 class="error-header center-align">Page Not Found</h1>
+  <p class="error-text center-align">This link is broken or the page has been moved. Try out these links...</p>
+  <div class="col s12 m6 error-links center-align">
+  <a href="{{ url_for('home') }}">Hompage</a>
+  <a href="{{ url_for('albums') }}">Albums</a>
+  <a href="{{ url_for('login') }}">Login</a>
+  <a href="{{ url_for('registration') }}">Registration</a>
+  </div>
+</div>
+<div class="col s0 m6">
+   <img class="error-image" src="{{ url_for('static', filename='images/error-image1.jpg') }}" alt="404-image">
+</div>
+</div>
 {% endblock %}

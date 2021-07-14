@@ -236,3 +236,32 @@ input {
 .main-content {
     min-height: calc(100vh - 320px);
 }
+
+/* ----------------------------------------------404.html*/
+
+.error-header {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 5rem;
+    margin-top: 10rem;
+}
+
+.error-text {
+        display: inline;
+        margin: 2.5rem;
+        font-size: 1.5rem;
+        font-family: "Yrsa", sans-serif;
+}
+
+.error-links {
+    margin-top: 1rem;
+}
+
+.error-links a {
+    margin-right: 5px;
+    padding: 5px;
+    color: #ea090d;
+}
+
+.error-image {
+    margin-top: 1.5rem;
+}
