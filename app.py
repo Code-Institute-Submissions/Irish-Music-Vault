@@ -4,7 +4,7 @@ import time
 from flask import (
     Flask, flash, render_template,
     redirect, request, session,
-    abort, url_for)
+     url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -53,13 +53,6 @@ def registration():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("registration.html")
 
-
-@app.route("/login_home")
-def login_home():
-    albums = list(mongo.db.albums.find())
-    if session["user"]:
-        return render_template("login_home.html", albums=albums)
-    
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -113,6 +106,8 @@ def profile(username):
     if session["user"]:
         return render_template("profile.html", username=username, albums=albums,
          email=email, count=count, capitalized_username=capitalized_username)
+    else:
+        abort(404)
     
     return redirect(url_for("login"))
 
@@ -134,6 +129,7 @@ def search():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
+    
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
         album = {
@@ -159,7 +155,7 @@ def upload():
 
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
-    # If not logged in, and user tries to access via the url for example, show custom 404 message
+    # If not logged in, and user tries to access via the url for example, show 404 message
     if not session["user"]:
         return redirect(url_for(page_not_found(e)))
 
