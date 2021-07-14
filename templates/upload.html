@@ -20,7 +20,7 @@
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <select id="genre_name" name="genre_name" class="validate" required>
-              <option class="input-fields" disabled selected>Choose one</option>
+              <option class="input-fields" disabled selected></option>
               {% for genre in genres %}
               <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
               {% endfor %}
@@ -67,19 +67,19 @@
     </div>
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
-          <label class="active input-fields" for="created_at"></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6 offset-s3 center-align">
         <select id="rating" name="rating">
-          <option value="" disabled selected>Rate This Album</option>
+          <option value="" disabled selected></option>
           {% for number in numbers %}
           <option value="{{ number }}">{{ number }}</option>
           {% endfor %}
         </select>
         <label for="rating">Rate This Album between 1 - 5</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6 offset-s3 center-align">
+          <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">
+          <label class="active input-fields" for="created_at"></label>
       </div>
     </div>
       <div class="row">

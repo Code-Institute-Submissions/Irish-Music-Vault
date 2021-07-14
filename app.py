@@ -3,7 +3,8 @@ import time
 # from time import time, ctime
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session,
+    abort, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -92,6 +93,11 @@ def login():
     return render_template("login.html")
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     count = mongo.db.albums.count_documents({"created_by": session["user"]})
@@ -105,11 +111,12 @@ def profile(username):
     capitalized_username = " ".join(capitalize)
     
     if session["user"]:
-        return render_template("profile.html", username=username, albums=albums, email=email, count=count, capitalized_username=capitalized_username)
-
+        return render_template("profile.html", username=username, albums=albums,
+         email=email, count=count, capitalized_username=capitalized_username)
+    
     return redirect(url_for("login"))
 
-
+    
 @app.route("/albums")
 def albums():
     albums = list(mongo.db.albums.find())
@@ -128,8 +135,6 @@ def search():
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     current_date = time.strftime("%d-%m-%y")
-    form = request.form.to_dict()
-    flatForm = request.form.to_dict(flat=False)
     if request.method == "POST":
         album = {
             "band_name": request.form.get("band_name"),
@@ -154,6 +159,10 @@ def upload():
 
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
+    # If not logged in, and user tries to access via the url for example, show custom 404 message
+    if not session["user"]:
+        return redirect(url_for(page_not_found(e)))
+
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
         update = {
