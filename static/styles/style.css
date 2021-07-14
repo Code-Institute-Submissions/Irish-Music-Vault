@@ -38,7 +38,6 @@ nav {
 .row .home-images {
     height: 15vw;
     width: 15vw;
-    /* margin-top: 1.5rem; */
 }
 
 .row .home-images-top {
@@ -265,3 +264,18 @@ input {
 .error-image {
     margin-top: 1.5rem;
 }
+
+/* ----------------------------------------------Media Queries*/
+
+@media screen and (max-width: 280px) {
+    .row .home-images {
+        height: 10vw;
+        width: 8vw;
+    }
+
+    nav .brand-logo {
+        font-size: 1.5rem;
+    }
+
+    
+    }

@@ -34,12 +34,8 @@
             <nav class="nav-extended black darken-4 z-depth-4">
                 <!--Top Navbar-->
                 <div class="nav-wrapper text">
-                    {% if session.user %}
                     <a href="{{ url_for('home') }}" class="brand-logo green-text text-lighten-3">Irish Music Vault</a>
-                    {% else %}
-                    <a href="{{ url_for('home') }}" class="brand-logo green-text text-lighten-3">Irish Music Vault</a>
-                    {% endif %}
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="material-icons">menu</i></a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right green-text text-lighten-3"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down text">
                         {% if session.user %}
                         <li><a href="{{ url_for('home') }}" class="text green-text text-lighten-3">Home</a></li>
