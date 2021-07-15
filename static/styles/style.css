@@ -312,6 +312,18 @@ input {
     .reg-btn-text {
         font-size: 13px;
     }
+
+    .sign-in-fa {
+        display: none;
+    }
+
+    .sign-in-text {
+        font-size: 14px;
+    }
+
+    .login-card {
+        height: 320px;
+    }
 }
 
 @media (min-width: 282px) and (max-width: 412px) {
@@ -343,6 +355,14 @@ input {
     .reg-btn-text {
         font-size: 12px;
     }
+
+    .sign-in-fa {
+        display: none;
+    }
+
+    .sign-in-text {
+        font-size: 14px;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 320px) {
@@ -362,6 +382,14 @@ input {
 
     .reg-btn {
         display: none;
+    }
+
+    .sign-in-fa {
+        display: none;
+    }
+
+    .sign-in-text {
+        font-size: 14px;
     }
 }
 
@@ -451,6 +479,10 @@ input {
 
     .reg-card {
         height: 425px;
+    }
+
+    .login-card {
+        height: 325px;
     }
 }
 
