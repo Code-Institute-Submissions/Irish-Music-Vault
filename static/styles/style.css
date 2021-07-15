@@ -391,6 +391,11 @@ input {
     .sign-in-text {
         font-size: 14px;
     }
+
+    .album-card-image {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 @media (min-width: 413px) and (max-width: 500px) {
