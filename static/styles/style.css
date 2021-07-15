@@ -324,6 +324,19 @@ input {
     .login-card {
         height: 320px;
     }
+
+    .error-image {
+        width: 100%;
+        height: 320px;
+    }
+
+    .error-message {
+        margin-top: 5px;
+    }
+
+    .error-header {
+        margin-top: 40px;
+    }
 }
 
 @media (min-width: 282px) and (max-width: 412px) {
@@ -362,6 +375,21 @@ input {
 
     .sign-in-text {
         font-size: 14px;
+    }
+
+    .error-image {
+        width: 100%;
+        height: 320px;
+        margin-bottom: 25px;
+    }
+
+    .error-message {
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+
+    .error-header {
+        margin-top: 40px;
     }
 }
 
@@ -422,6 +450,21 @@ input {
         font-size: 1.5rem;
         font-family: "Bebas Neue", sans-serif;
     }
+
+    .error-image {
+        width: 100%;
+        height: 320px;
+        margin-bottom: 25px;
+    }
+
+    .error-message {
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+
+    .error-header {
+        margin-top: 40px;
+    }
 }
 
 @media (min-width: 500px) and (max-width: 550px) {
@@ -448,6 +491,21 @@ input {
         margin: 1rem;
         font-size: 1.5rem;
         font-family: "Bebas Neue", sans-serif;
+    }
+
+    .error-image {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 25px;
+    }
+
+    .error-message {
+        margin-top: 5px;
+        margin-bottom: 25px;
+    }
+
+    .error-header {
+        margin-top: 40px;
     }
 }
 
@@ -489,6 +547,12 @@ input {
     .login-card {
         height: 325px;
     }
+    
+    .error-image {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 25px;
+    }
 }
 
 @media (min-width: 1000px) and (max-width: 1024px) {
@@ -496,4 +560,27 @@ input {
         height: 15vw;
         width: 14vw;
     }
+
+    .error-image {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 25px;
+    }
+
+    .error-text {
+        font-size: 1rem;
+    }
+
+    .error-links {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .error-image {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+
 }
