@@ -4,7 +4,7 @@ import time
 from flask import (
     Flask, flash, render_template,
     redirect, request, session,
-     url_for)
+    url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -93,6 +93,11 @@ def page_not_found(e):
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    try:
+        mongo.db.users.find_one({"username": session["user"]})
+    except BaseException:
+        return redirect(url_for("home"))
+
     count = mongo.db.albums.count_documents({"created_by": session["user"]})
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
     albums = list(mongo.db.albums.find())
@@ -104,10 +109,9 @@ def profile(username):
     capitalized_username = " ".join(capitalize)
     
     if session["user"]:
-        return render_template("profile.html", username=username, albums=albums,
-         email=email, count=count, capitalized_username=capitalized_username)
-    else:
-        abort(404)
+        return render_template("profile.html", username=username,
+        albums=albums, email=email, count=count, 
+        capitalized_username=capitalized_username)
     
     return redirect(url_for("login"))
 
@@ -129,6 +133,10 @@ def search():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
+    try:
+        mongo.db.users.find_one({"username": session["user"]})
+    except BaseException:
+        return redirect(url_for("home"))
     
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
@@ -155,9 +163,11 @@ def upload():
 
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
-    # If not logged in, and user tries to access via the url for example, show 404 message
-    if not session["user"]:
-        return redirect(url_for(page_not_found(e)))
+    # If not logged in, and user tries to access via the url for example
+    try:
+        mongo.db.users.find_one({"username": session["user"]})
+    except BaseException:
+        return redirect(url_for("home"))
 
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
@@ -185,6 +195,11 @@ def edit(album_id):
 
 @app.route("/delete/<album_id>")
 def delete(album_id):
+    try:
+        mongo.db.users.find_one({"username": session["user"]})
+    except BaseException:
+        return redirect(url_for("home"))
+
     mongo.db.albums.remove({"_id": ObjectId(album_id)})
     flash("Your listing was removed")
     return redirect(url_for("albums"))
@@ -192,6 +207,11 @@ def delete(album_id):
 
 @app.route("/logout")
 def logout():
+    try:
+        mongo.db.users.find_one({"username": session["user"]})
+    except BaseException:
+        return redirect(url_for("home"))
+
     # Remove user from session cookies
     flash("You are now logged out")
     session.clear()
