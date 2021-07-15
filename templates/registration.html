@@ -5,7 +5,7 @@
 
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
-        <div class="card-panel black darken-4 z-depth-5">
+        <div class="card-panel reg-card black darken-4 z-depth-5">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user prefix green-text text-lighten-3"></i>
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <div class="row">
-                <button type="submit" class="col btn-large s4 offset-s4 green lighten-4 text-shadow black-text text-darken-4">
-                    <i class="fas fa-sign-in-alt"></i> Sign Up
+                <button type="submit" class="col btn-large reg-btn-text s4 offset-s4 green lighten-4 text-shadow black-text text-darken-4">
+                    <i class="fas fa-sign-in-alt reg-btn"></i> Sign Up
                 </button>
             </div>
         </div>
@@ -39,7 +39,7 @@
 
 <div class="row">
     <div class="col s12">
-        <p class="center-align">
+        <p class="center-align alternative">
             Already have an account? Sign in <a href="{{ url_for('login') }}" class="green-text text-darken-4 underline">Here</a>
         </p>
     </div>
