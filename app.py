@@ -45,18 +45,11 @@ def registration():
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password"))
         }
-        error=None
-        name = registration['username']
+        error = None
         email = registration['email']
-        password = registration['password']
-        if not name or not name.strip():
-            error = "Please enter a username"
-            return render_template("registration.html", error=error, name=name)
-        if not email or not email.strip() or '@' not in email:
+        if not email or '@' not in email:
             error = "Please enter a valid email address"
             return render_template("registration.html", error=error, email=email)
-        if not password:
-            return render_template("registration.html", error=error, password=password)
 
         mongo.db.users.insert_one(registration)
         

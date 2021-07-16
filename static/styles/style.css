@@ -263,6 +263,14 @@ input {
     margin-top: 1.5rem;
 }
 
+/* ----------------------------------------------Form Error Messages*/
+
+.error-msg {
+    font-size: 2rem;
+    color: #ea090d;
+    font-family: "Yrsa", sans-serif;
+}
+
 /* ----------------------------------------------Media Queries*/
 
 @media screen and (max-width: 281px) {
