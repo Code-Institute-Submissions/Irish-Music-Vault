@@ -153,7 +153,7 @@ def upload():
             "created_by": session['user'],
             "created_at": current_date,
             "rating": request.form.get("rating")
-        }
+        }   
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")
         return redirect(url_for("albums"))

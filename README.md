@@ -23,6 +23,24 @@ The site uses two fonts.
 1. MongoDB was used as a database for holding any data related to the site.  
 2. randomkeygen.com was used to get a strong password to use as my SECRET_KEY enviornment variable which was needed for use with the flash() and session() functions of Flask. 
 3. Favicon.io was used to design a favicon for the site. (https://favicon.io/favicon-generator/)
+4. Github was used as a repository onto which to save my project.
+5. Gitpod/Visual Studio Code was used as an editor with which to write the code. 
+6. Heroku was used for deploying the site to the browser as Github pages cannot host Python projects.
+7. Flask which is a Python framework was used to build the site.
+8. Pymongo was used to connect the MongoDB database to my project.
+9. Werkzeug which is a Python security feature, was used to generate a hashed (indecipherable on the database) password.
+10. Balsamiq was used to create wireframes for the project.
+11. Materialize CSS was used as a css framework to style my site and make it responsive.
+12. Font Awesome was used to get icons for buttons.
+13. Google Fonts was used to get the fonts used in the site.
+14. JQuery was used for getting code to initialise Materialize CSS features.
+15. Jinja is part of the flask application. It is used for writing Python code in html files and while debug is set to True in the application, it shows error messages when code is throwing an error, giving the source of the problem in the code.
+
+## Languages used
+1. Html5
+2. Css3
+3. JavaScript
+4. Python 3.8.1
 
 # Features
 1. A separate home page ( login_home.html ) for logged in users which displays a different set of albums...
