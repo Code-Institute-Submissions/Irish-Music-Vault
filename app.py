@@ -11,7 +11,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
+"""
+Below is information for initialisiing Flask using enviornment 
+variables stored in the hidden env.py file
+"""
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -31,7 +34,8 @@ def home():
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
-        # Check if username already exists
+        # Check if username already exists and signal
+        # the user accordingly
         already_exists = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()}
             )
@@ -45,6 +49,7 @@ def registration():
             "email": request.form.get("email"),
             "password": generate_password_hash(request.form.get("password"))
         }
+        # Make sure email field filled out correctly
         error = None
         email = registration['email']
         if not email or '@' not in email:
@@ -95,6 +100,9 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # if User attempts to access profile page
+    # while not logged in, they will be 
+    # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
     except BaseException:
@@ -135,6 +143,9 @@ def search():
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
+    # if User attempts to access upload page
+    # while not logged in, they will be 
+    # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
     except BaseException:
@@ -153,8 +164,7 @@ def upload():
             "website": request.form.get("website"),
             "created_by": session['user'],
             "created_at": current_date,
-            "rating": request.form.get("rating")
-        }   
+            "rating": request.form.get("rating")}   
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")
         return redirect(url_for("albums"))
@@ -165,7 +175,9 @@ def upload():
 
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
-    # If not logged in, and user tries to access via the url for example
+    # if User attempts to access edit page
+    # while not logged in, they will be 
+    # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
     except BaseException:
@@ -197,6 +209,9 @@ def edit(album_id):
 
 @app.route("/delete/<album_id>")
 def delete(album_id):
+    # if User attempts to access delete page
+    # while not logged in, they will be 
+    # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
     except BaseException:
@@ -219,7 +234,7 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
-
+# Throws a custom 404 page if page being searched does not exist
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
