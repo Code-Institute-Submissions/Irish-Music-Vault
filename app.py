@@ -62,6 +62,7 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
     if request.method == "POST":
         # Check if username exists in database
         # Python uses the name attribute from the form inputs
@@ -83,7 +84,7 @@ def login():
                 # If passwords do not match
                 flash("Incorrect username/password entered, please try again")
                 return redirect(url_for("login"))
-        
+
         else:
             # Username not in database
             flash("Incorrect username/password entered, please try again")
