@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Yrsa&display=swap&family=Lobster&display=swap"');
-
+/* Above is the imported fonts form my project from Google Fonts*/
 /* ----------------------------------------------base.html*/
 body {
     background-color: #e8f5e9;
@@ -181,12 +181,6 @@ input {
 
 /* ----------------------------------------------upload.html*/
 
-/*.input-fields{
-    font-family: "Yrsa", sans-serif;
-    color: black;
-    font-size: 1.25rem !important;
-}.  */
-
 .sub-button {
     font-family: "Yrsa", sans-serif;
     color: black;
@@ -213,7 +207,6 @@ input {
 .row .login-home-images-top {
     height: 15vw;
     width: 15vw;
-    /* margin-top: 1rem; */
     margin-right: 25px;
 }
 
