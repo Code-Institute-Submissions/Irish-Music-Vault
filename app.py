@@ -39,20 +39,33 @@ def registration():
         if already_exists:
             flash('Username already in use')
             return redirect(url_for("registration"))
-
+        
         registration = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
-            "password": generate_password_hash(request.form.get("password")),
+            "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert_one(registration)
+        error=None
+        name = registration['username']
+        email = registration['email']
+        password = registration['password']
+        if not name or not name.strip():
+            error = "Please enter a username"
+            return render_template("registration.html", error=error, name=name)
+        if not email or not email.strip() or '@' not in email:
+            error = "Please enter a valid email address"
+            return render_template("registration.html", error=error, email=email)
+        if not password:
+            return render_template("registration.html", error=error, password=password)
 
+        mongo.db.users.insert_one(registration)
+        
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("registration.html")
-
+       
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -82,13 +95,8 @@ def login():
             # Username not in database
             flash("Incorrect username/password entered, please try again")
             return redirect(url_for("login"))
-
+    
     return render_template("login.html")
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html')
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -216,6 +224,11 @@ def logout():
     flash("You are now logged out")
     session.clear()
     return redirect(url_for("login"))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
 
 
 if __name__ == "__main__":
