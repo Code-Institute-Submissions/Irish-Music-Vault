@@ -33,6 +33,8 @@ def home():
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
+    # Check if user is logged in, if so disallow 
+    # access to this page for logged out users
     if "user" in session:
         return redirect(url_for('home')) 
 
@@ -70,6 +72,10 @@ def registration():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # Check if user is logged in, if so disallow 
+    # access to this page for logged out users
+    if "user" in session:
+        return redirect(url_for('home'))
 
     if request.method == "POST":
         # Check if username exists in database
@@ -147,7 +153,7 @@ def search():
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     # if User attempts to access upload page
-    # while not logged in, they will be 
+    # while not logged in, they will get 
     # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
@@ -179,7 +185,7 @@ def upload():
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
     # if User attempts to access edit page
-    # while not logged in, they will be 
+    # while not logged in, they will get 
     # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
