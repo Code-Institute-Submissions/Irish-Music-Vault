@@ -2,12 +2,16 @@
 
 {% block content %}
 
-<h2 class="band-name black-text text-lighten-4 center-align">{{ album.band_name }}</h2><br>
-<h3 class="band-name black-text text-lighten-4 center-align"><strong>{{ album.album_name }}</strong></h3>
+<h1 class="band-name black-text text-lighten-4 center-align">{{ album.band_name }}</h1>
+<h4 class="band-name black-text text-lighten-4 center-align"><strong>{{ album.album_name }}</strong></h4>
 <p class="center-align"><img class="album-card-image album-view center-align" src="{{ album.album_image }}" alt="Album Image"></p>
 <p class="center-align">{{ album.release_date }}</p>
 <p class="center-align">{{ album.genre_name }}</p>
 <p class="center-align"><a href="{{ album.website }}" target="_blank">Website</a></p>
 <p class="center-align">Uploaded by {{ album.created_by.capitalize() }} on {{ album.created_at }}</p>
+<ol> 
+    <li>{{ album.songs }}</li>
+</ol>
+<ol>{{ album.personnel }}</ol>
            
 {% endblock %}
