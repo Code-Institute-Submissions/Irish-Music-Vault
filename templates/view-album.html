@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+       <div class="card-panel green lighten-4  black-text text-lighten-2 col s12 m4 albums center-align">
+           <h2 class="band-name">{{ album.band_name }}</h2><br>
+           <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image" />
+           <h4><strong>{{ album.album_name }}</strong></h4>
+           <h6>{{ album.release_date }}</h6>
+           <h6>{{ album.genre_name }}</h6>
+           <a href="{{ album.website }}" target="_blank">Website</a>
+           <p>Uploaded by {{ album.created_by.capitalize() }} on {{ album.created_at }}</p>
+       </div>
+   </div>
+   
+{% endblock %}

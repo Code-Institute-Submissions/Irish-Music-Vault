@@ -34,7 +34,8 @@
                 {% for album in albums %}
                   {% if album.created_by == session["user"] %}
                         <h2 class="band-name"><strong>{{ album.band_name }}</strong></h2>
-                        <img class="album-card-image" src="{{ album.album_image }}" alt="Album Image">
+                        <a href="{{ url_for('view_album', album_id=album._id) }}"><img class="album-card-image" src="{{ album.album_image }}" alt="Album Image"></a>
+                        <p class="more-info black-text text-darken-5">Click image for more info</p>
                         <h4 class="profile"><strong>{{ album.album_name }}</strong></h4>
                         <h6 class="profile">{{ album.release_date }}</h6>
                         <h6 class="profile">{{ album.genre_name }}</h6>

@@ -139,7 +139,13 @@ def profile(username):
 def albums():
     albums = list(mongo.db.albums.find())
     genres = list(mongo.db.genres.find())
-    return render_template("albums.html", albums=albums, genres=genres)
+    return render_template("albums.html", albums=albums, genres=genres, )
+
+
+@app.route("/albums/<album_id>/view")
+def view_album(album_id):
+    album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
+    return render_template("view-album.html", album=album)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -233,6 +239,9 @@ def delete(album_id):
 
 @app.route("/logout")
 def logout():
+    # if User attempts to access logout page
+    # while not logged in, they will be 
+    # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
     except BaseException:
