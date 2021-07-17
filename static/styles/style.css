@@ -183,6 +183,12 @@ input {
     font-size: 13px;
 }
 
+/* ----------------------------------------------view-album.html*/
+
+.album-view {
+    text-align: center;
+}
+
 /* ----------------------------------------------upload.html*/
 
 .sub-button {
