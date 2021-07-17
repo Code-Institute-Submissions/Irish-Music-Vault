@@ -33,6 +33,9 @@ def home():
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
+    if "user" in session:
+        return redirect(url_for('home')) 
+
     if request.method == "POST":
         # Check if username already exists and signal
         # the user accordingly
