@@ -183,6 +183,10 @@ input {
     font-size: 13px;
 }
 
+.select-wrapper input.select-dropdown {
+    color: black;
+}
+
 /* ----------------------------------------------view-album.html*/
 
 .album-view {

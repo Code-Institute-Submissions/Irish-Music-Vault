@@ -7,22 +7,22 @@
     <form action="{{ url_for('upload') }}" method="POST">
     <div class="row">
     <div class="input-field col s6 offset-s3 center-align">
-      <input id="band_name" name="band_name" type="text" class="validate input-fields" required>
+      <input id="band_name" name="band_name" type="text" class="validate input-fields black-text" required>
       <label class="active input-fields" for="band_name">Band Name</label>
     </div>
     </div>
     <div class="row">
     <div class="input-field col s6 offset-s3 center-align">
-        <input id="album_name" name="album_name" type="text" class="validate input-fields" required>
+        <input id="album_name" name="album_name" type="text" class="validate input-fields black-text" required>
         <label class="active input-fields" for="album_name">Album Name</label>
       </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <select id="genre_name" name="genre_name" class="validate" required>
-              <option class="input-fields" disabled selected></option>
+              <option class="input-fields black-text" disabled selected></option>
               {% for genre in genres %}
-              <option class="input-fields" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
+              <option class="input-fields black-text" value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
               {% endfor %}
             </select>
             <label for="genre_name">Choose a genre</label>
@@ -31,31 +31,31 @@
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
         <input id="release_date" name="release_date" type="number" min="1900" max="2050" minlength="4" 
-          maxlength="4" step="1" class="validate input-fields" required>
+          maxlength="4" step="1" class="validate input-fields black-text" required>
         <label class="active input-fields" for="release_date">Year of Release</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-        <input id="album_image" name="album_image" type="text" class="validate input-fields" placeholder="Add image url">
+        <input id="album_image" name="album_image" type="text" class="validate input-fields black-text" placeholder="Add image url">
         <label class="active input-fields" for="album_image">Album Image</label>
       </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
-            <input id="website" name="website" type="text" class="validate input-fields" placeholder="Add website url">
+            <input id="website" name="website" type="text" class="validate input-fields black-text" placeholder="Add website url">
             <label class="active input-fields" for="website">Website</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
-            <input id="personnel" name="personnel" type="text" class="validate input-fields" placeholder="Add band members and instruments played">
+            <input id="personnel" name="personnel" type="text" class="validate input-fields black-text" placeholder="Add band members and instruments played">
             <label class="active input-fields" for="personnel">Personnel</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
-            <input id="songs" name="songs" type="text" class="validate input-fields">
+            <input id="songs" name="songs" type="text" class="validate input-fields black-text">
             <label class="active input-fields" for="songs">Album Track List</label>
         </div>
     </div>
@@ -68,7 +68,7 @@
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
         <select id="rating" name="rating">
-          <option value="" disabled selected></option>
+          <option value="" disabled selected>Choose One</option>
           {% for number in numbers %}
           <option value="{{ number }}">{{ number }}</option>
           {% endfor %}
