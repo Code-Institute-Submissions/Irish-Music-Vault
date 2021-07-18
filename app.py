@@ -144,6 +144,8 @@ def albums():
 
 @app.route("/albums/<album_id>/view")
 def view_album(album_id):
+    # Gives user access to a page with more info
+    # about clicked-on album
     album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
     return render_template("view-album.html", album=album)
 
@@ -174,12 +176,12 @@ def upload():
             "genre_name": request.form.get("genre_name"),
             "release_date": request.form.get("release_date"),
             "album_image": request.form.get("album_image"),
-            "personnel": request.form.getlist("personnel"),
-            "songs": request.form.getlist("songs"),
+            "personnel": request.form.get("personnel"),
+            "songs": request.form.get("songs"),
             "website": request.form.get("website"),
             "created_by": session['user'],
             "created_at": current_date,
-            "rating": request.form.get("rating")}   
+            "rating": request.form.get("rating")}
         mongo.db.albums.insert_one(album)
         flash("Album added to album list")
         return redirect(url_for("albums"))
@@ -206,8 +208,8 @@ def edit(album_id):
             "genre_name": request.form.get("genre_name"),
             "release_date": request.form.get("release_date"),
             "album_image": request.form.get("album_image"),
-            "personnel": request.form.getlist("personnel"),
-            "songs": request.form.getlist("songs"),
+            "personnel": request.form.get("personnel"),
+            "songs": request.form.get("songs"),
             "website": request.form.get("website"),
             "created_by": session['user'],
             "created_at": current_date,

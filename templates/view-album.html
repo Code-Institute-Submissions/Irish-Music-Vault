@@ -8,10 +8,9 @@
 <p class="center-align">{{ album.release_date }}</p>
 <p class="center-align">{{ album.genre_name }}</p>
 <p class="center-align"><a href="{{ album.website }}" target="_blank">Website</a></p>
-<p class="center-align">Uploaded by {{ album.created_by.capitalize() }} on {{ album.created_at }}</p>
-<ol> 
-    <li>{{ album.songs }}</li>
-</ol>
-<ol>{{ album.personnel }}</ol>
+<h5 class="band-name">Songs</h5>
+<p>{{ album.songs }}</p>
+<h5 class="band-name">Personnel</h5>
+<p>{{ album.personnel }}</p>
            
 {% endblock %}
