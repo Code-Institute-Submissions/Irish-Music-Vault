@@ -11,6 +11,10 @@
 <p>{{ album.songs }}</p>
 <h5 class="band-name" style="letter-spacing: 1px;">Personnel</h5>
 <p>{{ album.personnel }}</p>
+<!--Button to go back to albums page-->
+<div class="col s12 center-align">
+<a href="{{ url_for('albums') }}" class="btn green darken-1 sub-button back-btn text-shadow center-align">Back to albums</a>
 </div>
+
            
 {% endblock %}
