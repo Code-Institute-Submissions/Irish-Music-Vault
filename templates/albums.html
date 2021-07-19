@@ -18,16 +18,18 @@
                     </div>
                 </div>
             </form>
-            <form action="" method="post">
-                <!--Links for categorised results-->
+            <!--<form action="{{ url_for('albums') }}" method="post">
+                
                 <div class="col s-8 m-8 genres">
                     <ul class="inline">
+              
                         {% for genre in genres %}
-                        <li><a href="{{ url_for('albums') }}" name="genre-list" id="genre-list" class="genre-list left-align">{{ genre.genre_name }}</a></li>
+                        <li><a href="{{ url_for('albums') }}" for="genre-list" id="genre-list" class="genre-list left-align">{{ genre.genre_name }}</a></li>
                         {% endfor %}
+              
                     </ul>
                 </div>
-            </form>
+            </form>-->
         </div>
 
       <h3 class="center-align card-title">Albums Database</h3>
