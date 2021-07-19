@@ -202,6 +202,10 @@ input {
     margin-top: 165px;
     margin-bottom: 165px;
 }
+
+.margin {
+    margin-left: 15px;
+}
 /* ----------------------------------------------upload.html*/
 
 .sub-button {

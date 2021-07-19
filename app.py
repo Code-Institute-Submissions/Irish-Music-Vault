@@ -27,8 +27,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    albums = list(mongo.db.albums.find())
-    return render_template("home.html", albums=albums)
+    top_rated_albums = list(mongo.db.albums.find().sort("rating", -1).limit(6))
+    recently_added_albums = list(mongo.db.albums.find().sort("created_at", -1).limit(6))
+    return render_template("home.html", recently_added_albums=recently_added_albums, top_rated_albums=top_rated_albums)
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -107,15 +108,13 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
     # if User attempts to access profile page
     # while not logged in, they will be 
     # redirected to the home page
-    try:
-        mongo.db.users.find_one({"username": session["user"]})
-    except BaseException:
-        return redirect(url_for("home"))
+    if "user" not in session:
+        return redirect(url_for('home'))
 
     count = mongo.db.albums.count_documents({"created_by": session["user"]})
     email = mongo.db.users.find_one({"username": session["user"]})["email"]
@@ -152,19 +151,20 @@ def albums():
 def view_album(album_id):
     # Gives user access to a page with more info
     # about clicked-on album
-    album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
-    return render_template("view-album.html", album=album)
+    try:
+        album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
+        return render_template("view-album.html", album=album)
+    except:
+        return render_template("404.html")
 
-
+    
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     # if User attempts to access upload page
     # while not logged in, they will get 
     # redirected to the home page
-    try:
-        mongo.db.users.find_one({"username": session["user"]})
-    except BaseException:
-        return redirect(url_for("home"))
+    if "user" not in session:
+        return redirect(url_for('home'))
     
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
@@ -193,10 +193,8 @@ def edit(album_id):
     # if User attempts to access edit page
     # while not logged in, they will get 
     # redirected to the home page
-    try:
-        mongo.db.users.find_one({"username": session["user"]})
-    except BaseException:
-        return redirect(url_for("home"))
+    if "user" not in session:
+        return redirect(url_for('home'))
 
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
@@ -215,11 +213,13 @@ def edit(album_id):
         }
         mongo.db.albums.update({"_id": ObjectId(album_id)}, update)
         flash("Album listing updated")
-        
-    album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
-    numbers = [1, 2, 3, 4, 5]
-    genres = mongo.db.genres.find().sort("genre_name", 1)
-    return render_template("edit.html", album=album, genres=genres, numbers=numbers)
+    try: 
+        album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
+        numbers = [1, 2, 3, 4, 5]
+        genres = mongo.db.genres.find().sort("genre_name", 1)
+        return render_template("edit.html", album=album, genres=genres, numbers=numbers)
+    except:
+        return render_template("404.html")
 
 
 @app.route("/delete/<album_id>")

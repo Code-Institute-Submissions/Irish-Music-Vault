@@ -7,10 +7,10 @@
 <p class="center-align">{{ album.release_date }}</p>
 <p class="center-align">{{ album.genre_name }}</p>
 <p class="center-align"><a href="{{ album.website }}" target="_blank">Website</a></p>
-<h5 class="band-name" style="letter-spacing: 1px;">Songs</h5>
-<p>{{ album.songs }}</p>
-<h5 class="band-name" style="letter-spacing: 1px;">Personnel</h5>
-<p>{{ album.personnel }}</p>
+<h5 class="band-name margin" style="letter-spacing: 1px;">Songs</h5>
+<p class="margin">{{ album.songs }}</p>
+<h5 class="margin band-name" style="letter-spacing: 1px;">Personnel</h5>
+<p class="margin">{{ album.personnel }}</p>
 <!--Button to go back to albums page-->
 <div class="col s12 center-align">
 <a href="{{ url_for('albums') }}" class="btn green darken-1 sub-button back-btn text-shadow center-align">Back to albums</a>

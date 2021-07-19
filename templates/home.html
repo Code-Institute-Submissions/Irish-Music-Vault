@@ -1,14 +1,12 @@
 {% extends "base.html" %} 
 {% block content %} 
 <!--Uploaded albums released in 2021-->
-<p class="home-headers grey-text text-darken-4">Uploads Released in 2021</p>
+<p class="home-headers grey-text text-darken-4">Recently Added Albums</p>
 <div class="row">
     <div class="col m2">
         <div class="flex-container">
-            {% for album in albums %} 
-              {% if album.release_date == "2021" and album.home_page_top == "True" %}
+            {% for album in recently_added_albums %} 
                 <a href="{{ url_for('view_album', album_id=album._id) }}"><img class="home-images login-home-images-top z-depth-5" src="{{ album.album_image }}" alt="Album Image" /></a>
-              {% endif %} 
             {% endfor %}
         </div>
     </div>
@@ -30,14 +28,12 @@
     </div>
 </div>
 <!--Uploads that uploader has rated 5/5-->
-<p class="home-headers grey-text text-darken-4">Uploads rated 5/5</p>
+<p class="home-headers grey-text text-darken-4">Top Rated Albums</p>
 <div class="row">
     <div class="col m2">
         <div class="flex-container">
-            {% for album in albums %} 
-              {% if album.rating == "5" and album.home_page_bottom == "True" %}
+            {% for album in top_rated_albums %} 
               <a href="{{ url_for('view_album', album_id=album._id) }}"><img class="home-images login-home-images-bottom z-depth-5" src="{{ album.album_image }}" alt="Album Image" /></a>
-              {% endif %} 
             {% endfor %}
         </div>
     </div>
