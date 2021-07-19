@@ -187,6 +187,9 @@ input {
     color: black;
 }
 
+.search-bar {
+    width: 90%;
+}
 /* ----------------------------------------------view-album.html*/
 
 .album-view {
