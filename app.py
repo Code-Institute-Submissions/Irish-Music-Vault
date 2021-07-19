@@ -134,12 +134,18 @@ def profile(username):
     
     return redirect(url_for("login"))
 
-    
-@app.route("/albums")
+
+@app.route("/albums", methods=["GET", "POST"])
 def albums():
-    albums = list(mongo.db.albums.find())
+    search_query = request.form.get("search")
+    search_obj = {}
+
+    if search_query:
+        search_obj["$text"] = {"$search": search_query}
+
+    albums = list(mongo.db.albums.find(search_obj))
     genres = list(mongo.db.genres.find())
-    return render_template("albums.html", albums=albums, genres=genres, )
+    return render_template("albums.html", albums=albums, genres=genres)
 
 
 @app.route("/albums/<album_id>/view")
@@ -148,14 +154,6 @@ def view_album(album_id):
     # about clicked-on album
     album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
     return render_template("view-album.html", album=album)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    search = request.form.get("search")
-    albums = list(mongo.db.albums.find({"$text": {"$search": search}}))
-    genres = list(mongo.db.genres.find())
-    return render_template("albums.html", albums=albums, genres=genres)
 
 
 @app.route("/upload", methods=["GET", "POST"])
