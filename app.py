@@ -12,7 +12,7 @@ if os.path.exists("env.py"):
     import env
 
 """
-Below is information for initialisiing Flask using enviornment 
+Below is information for initialisiing Flask using enviornment
 variables stored in the hidden env.py file
 """
 app = Flask(__name__)
@@ -28,16 +28,19 @@ mongo = PyMongo(app)
 @app.route("/home")
 def home():
     top_rated_albums = list(mongo.db.albums.find().sort("rating", -1).limit(6))
-    recently_added_albums = list(mongo.db.albums.find().sort("created_at", -1).limit(6))
-    return render_template("home.html", recently_added_albums=recently_added_albums, top_rated_albums=top_rated_albums)
+    recently_added_albums = list(mongo.db.albums.find().sort(
+        "created_at", -1).limit(6))
+    return render_template(
+        "home.html", recently_added_albums=recently_added_albums,
+        top_rated_albums=top_rated_albums)
 
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
-    # Check if user is logged in, if so disallow 
+    # Check if user is logged in, if so disallow
     # access to this page for logged out users
     if "user" in session:
-        return redirect(url_for('home')) 
+        return redirect(url_for('home'))
 
     if request.method == "POST":
         # Check if username already exists and signal
@@ -45,11 +48,11 @@ def registration():
         already_exists = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()}
             )
-        
+
         if already_exists:
             flash('Username already in use')
             return redirect(url_for("registration"))
-        
+
         registration = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email"),
@@ -60,20 +63,21 @@ def registration():
         email = registration['email']
         if not email or '@' not in email:
             error = "Please enter a valid email address"
-            return render_template("registration.html", error=error, email=email)
+            return render_template("registration.html",
+                                   error=error, email=email)
 
         mongo.db.users.insert_one(registration)
-        
+
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("registration.html")
-       
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    # Check if user is logged in, if so disallow 
+    # Check if user is logged in, if so disallow
     # access to this page for logged out users
     if "user" in session:
         return redirect(url_for('home'))
@@ -81,7 +85,7 @@ def login():
     if request.method == "POST":
         # Check if username exists in database
         # Python uses the name attribute from the form inputs
-        # So username below refers to the name attribute of 
+        # So username below refers to the name attribute of
         # the username input field
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -89,10 +93,10 @@ def login():
         if existing_user:
             # Check input password against the hashed password
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome back {}".format(
-                request.form.get("username")))
+                                               request.form.get("username")))
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -104,14 +108,14 @@ def login():
             # Username not in database
             flash("Incorrect username/password entered, please try again")
             return redirect(url_for("login"))
-    
+
     return render_template("login.html")
 
 
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     # if User attempts to access profile page
-    # while not logged in, they will be 
+    # while not logged in, they will be
     # redirected to the home page
     if "user" not in session:
         return redirect(url_for('home'))
@@ -125,12 +129,12 @@ def profile():
     first_last = username.split(" ")
     capitalize = [f.capitalize() for f in first_last]
     capitalized_username = " ".join(capitalize)
-    
+
     if session["user"]:
         return render_template("profile.html", username=username,
-        albums=albums, email=email, count=count, 
-        capitalized_username=capitalized_username)
-    
+                               albums=albums, email=email, count=count,
+                               capitalized_username=capitalized_username)
+
     return redirect(url_for("login"))
 
 
@@ -154,18 +158,18 @@ def view_album(album_id):
     try:
         album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
         return render_template("view-album.html", album=album)
-    except:
+    except Exception:
         return render_template("404.html")
 
-    
+
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
     # if User attempts to access upload page
-    # while not logged in, they will get 
+    # while not logged in, they will get
     # redirected to the home page
     if "user" not in session:
         return redirect(url_for('home'))
-    
+
     current_date = time.strftime("%d-%m-%y")
     if request.method == "POST":
         album = {
@@ -191,7 +195,7 @@ def upload():
 @app.route("/edit/<album_id>", methods=["GET", "POST"])
 def edit(album_id):
     # if User attempts to access edit page
-    # while not logged in, they will get 
+    # while not logged in, they will get
     # redirected to the home page
     if "user" not in session:
         return redirect(url_for('home'))
@@ -213,19 +217,20 @@ def edit(album_id):
         }
         mongo.db.albums.update({"_id": ObjectId(album_id)}, update)
         flash("Album listing updated")
-    try: 
+    try:
         album = mongo.db.albums.find_one({"_id": ObjectId(album_id)})
         numbers = [1, 2, 3, 4, 5]
         genres = mongo.db.genres.find().sort("genre_name", 1)
-        return render_template("edit.html", album=album, genres=genres, numbers=numbers)
-    except:
+        return render_template("edit.html",
+                               album=album, genres=genres, numbers=numbers)
+    except Exception:
         return render_template("404.html")
 
 
 @app.route("/delete/<album_id>")
 def delete(album_id):
     # if User attempts to access delete page
-    # while not logged in, they will be 
+    # while not logged in, they will be
     # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
@@ -240,7 +245,7 @@ def delete(album_id):
 @app.route("/logout")
 def logout():
     # if User attempts to access logout page
-    # while not logged in, they will be 
+    # while not logged in, they will be
     # redirected to the home page
     try:
         mongo.db.users.find_one({"username": session["user"]})
@@ -251,6 +256,7 @@ def logout():
     flash("You are now logged out")
     session.clear()
     return redirect(url_for("login"))
+
 
 # Throws a custom 404 page if page being searched does not exist
 @app.errorhandler(404)
