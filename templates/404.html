@@ -2,16 +2,17 @@
 {% extends "base.html" %} 
 {% block content %}
 <div class="row">
-<div class="col s12 m6 error-message">
-  <h1 class="error-header center-align">Page Not Found</h1>
-  <p class="error-text ">...This link is broken or the page has been moved. Try out these links...</p>
-  <div class="col s12 m6 error-links ">
-  <a href="{{ url_for('home') }}">Homepage</a>
-  <a href="{{ url_for('albums') }}">Albums</a>
+  <div class="col s12 m6 error-message">
+      <h1 class="error-header center-align">Page Not Found</h1>
+      <p class="error-text">...This link is broken or the page has been moved. Try out these links...</p>
+      <div class="col s12 m6 error-links">
+          <a href="{{ url_for('home') }}">Homepage</a>
+          <a href="{{ url_for('albums') }}">Albums</a>
+      </div>
+  </div>
+  <div class="col s0 m6">
+      <img class="error-image" src="{{ url_for('static', filename='images/error-image1.jpg') }}" alt="404-image" />
   </div>
 </div>
-<div class="col s0 m6">
-   <img class="error-image" src="{{ url_for('static', filename='images/error-image1.jpg') }}" alt="404-image">
-</div>
-</div>
+
 {% endblock %}
