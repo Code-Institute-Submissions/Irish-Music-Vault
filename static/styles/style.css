@@ -197,6 +197,11 @@ input {
     text-align: center;
     margin: 15px;
 }
+
+.none-found {
+    margin-top: 165px;
+    margin-bottom: 165px;
+}
 /* ----------------------------------------------upload.html*/
 
 .sub-button {

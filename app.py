@@ -137,11 +137,15 @@ def profile(username):
 
 @app.route("/albums", methods=["GET", "POST"])
 def albums():
+    genre = request.args.get("genre_name")
     search_query = request.form.get("search")
     search_obj = {}
 
     if search_query:
         search_obj["$text"] = {"$search": search_query}
+
+    if genre:
+       search_obj["genre_name"] =  genre
 
     albums = list(mongo.db.albums.find(search_obj))
     genres = list(mongo.db.genres.find())

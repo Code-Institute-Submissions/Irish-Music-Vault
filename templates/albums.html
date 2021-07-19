@@ -18,12 +18,12 @@
                     </div>
                 </div>
             </form>
-            <form action="{{ url_for('albums') }}" method="post">
+            <form action="" method="post">
                 <!--Links for categorised results-->
                 <div class="col s-8 m-8 genres">
                     <ul class="inline">
                         {% for genre in genres %}
-                        <li><a href="#" class="genre-list left-align">{{ genre.genre_name }}</a></li>
+                        <li><a href="{{ url_for('albums') }}" name="genre-list" id="genre-list" class="genre-list left-align">{{ genre.genre_name }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -48,7 +48,10 @@
         {% endfor %}
        </div>
        {% else %}
-        <h2 class="band-name center-align red lighten-3 white-text">No uploads found</h2>
+        <h2 class="band-name center-align red lighten-3 white-text none-found">No uploads found</h2>
+        <div class="col s12 center-align">
+        <a href="{{ url_for('albums') }}" class="btn green darken-1 sub-button back-btn text-shadow center-align">Back</a>
+        </div>
     {% endif %}
 
 {% endblock %}
