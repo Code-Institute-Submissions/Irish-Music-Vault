@@ -617,4 +617,8 @@ div .none-found-btn {
         height: 15vw;
         width: 15vw;
     }
+
+    .alternative {
+        margin-bottom: 6rem;
+    }
 }

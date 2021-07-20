@@ -102,6 +102,19 @@ The register.html page gives the user a form containing the fields 'username', '
 * Pressing submit when all fields are entered correctly will submit the form successfully and in this test case I am now brought to the profile page set up for Michael. 
 
 ### LOGIN.HTML
+The login page has the same input fields as the registration page minus the email input. The same validation errors and success indicators will be shown upon user interaction with it. Similar to the registration page, successful completion of the form followed by pressing the submit button will bring the user to their user profile page.
+
+### PROFILE.HTML
+The profile page contains two sections. One for user details and another that contains any uploads a user has submitted. 
+* In the user details section at the top of the screen there are four pieces of user data. The first is the user's username which is set to the username that they registered with. In this test case it is set to 'michael' as per the registration testing above. The email is set to 'michael@email.com' as per the test case above. The next two are 'Total Uploads' and 'Uploads Rated 5/5'. 'Total Uploads' is set to 0 as I have not uploaded anything yet. 'Uploads Rated 5/5' is currently empty. The section below this which shows the albums that I have uploaded is also empty.
+* I will test these by uploading an album in the upload section, in this case 'Gambler's Ballet' by Kila
+* As expected, in the user details section the 'Total Uploads' has been increased to '1'. As I rated it 5/5 it has been included in the section titled 'Uploads Rated 5/5. Also as expected the album listing which also appears on the albums page has appeared on the lower half of the profile page. 
+* Included in this album listing unlike on the albums page, is an edit and delete button unique to the profile page. Pressing on the edit button brings me to the edit page. 
+* Clicking on the delete button opens up a modal that asks me to confirm the deletion. When I press 'No' the profile page is reloaded and the upload remains in the database. When I click 'Yes' the upload is deleted from the database permanently.
+
+### UPLOAD.HTML
+
+
 
 
 
