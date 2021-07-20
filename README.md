@@ -113,8 +113,16 @@ The profile page contains two sections. One for user details and another that co
 * Clicking on the delete button opens up a modal that asks me to confirm the deletion. When I press 'No' the profile page is reloaded and the upload remains in the database. When I click 'Yes' the upload is deleted from the database permanently.
 
 ### UPLOAD.HTML
+The upload page contains nine input fields for uploading an album. These input fields use the same validation method as the registration page
 
 
+
+
+## Site Responsiveness
+The responsive element of this site was tested using three different methods:
+* The first was within the developer tools on Google Chrome. This is accessed by pressing control and left click on the mouse. Then on the menu that displays as a result, clicking on inspect at the bottom. This allows me to look at the site as it would appear on a variety of different device sizes. Using these different device views I can see where there are issues and fix them accordingly using media queries in the css file. 
+* Using the site Am I Responsive (http://ami.responsivedesign.is/), I was able to test how the site looked on four different widely varying device sizes. Screenshots from this site are included at the top of this README file. 
+*  I had access 
 
 
 
