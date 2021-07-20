@@ -1,5 +1,10 @@
-# About
-Irish Music Vault is intended as a database of albums recorded by Irish bands to be updated by both an admin and users of the site. The goal is to, in time, have a fully comprehensive database of albums across a multitude of genres.
+# IRISH MUSIC VAULT
+Irish Music Vault is intended to be a comprehensive list of albums recorded by Irish bands to be updated by users of the site. The goal is to in time, have a fully comprehensive database of albums across a multitude of genres. The user can register an account and login to their own profile page which lists some details about their use of the site including uploads list/ personal info. Users can upload an album via an upload form which asks for a comprehensive list of information about an individual release. The user then has the option to edit/delete their upload from within their unique profile page. If they choose to edit an upload, they are given a form with the exact information that they provided which they can then alter as they wish. Deleting an upload removes it entirely. A home page with 'Top Rated Albums' and 'Recently Added Albums' is seen upon accessing the site. Finally an albums list page with all of the uploads uploaded by the sites users is scrollable with each image being clickable and leading the user to a page dedicated to that album alone. 
+
+The idea for the site came from a friend who told me that while working at a small radio station in Ireland, she used a database of albums the criteria for which was that at least one band member had to be Irish. This was because the station had a quota of Irish bands that they played. 
+
+Below are images of three pages of the website accross four different screen sizes
+![Home Page](./static/images/readme1.png)
 
 # UX
 ## User Stories:
