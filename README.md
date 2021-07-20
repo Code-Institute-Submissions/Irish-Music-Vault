@@ -1,5 +1,5 @@
 # IRISH MUSIC VAULT
-Irish Music Vault is intended to be a comprehensive list of albums recorded by Irish bands to be updated by users of the site. The goal is to in time, have a fully comprehensive database of albums across a multitude of genres. The user can register an account and login to their own profile page which lists some details about their use of the site including uploads list/ personal info. Users can upload an album via an upload form which asks for a comprehensive list of information about an individual release. The user then has the option to edit/delete their upload from within their unique profile page. If they choose to edit an upload, they are given a form with the exact information that they provided which they can then alter as they wish. Deleting an upload removes it entirely. A home page with 'Top Rated Albums' and 'Recently Added Albums' is seen upon accessing the site. Finally an albums list page with all of the uploads uploaded by the sites users is scrollable with each image being clickable and leading the user to a page dedicated to that album alone. 
+Irish Music Vault is intended to be a comprehensive list of albums recorded by Irish bands to be updated by users of the site. The goal is to in time, have a fully comprehensive database of albums across a multitude of genres. The user can register an account and login to their own profile page which lists some details about their use of the site including uploads list/ personal info. Users can upload an album via an upload form which asks for a comprehensive list of information about an individual release. The user then has the option to edit/delete their upload from within their unique profile page. If they choose to edit an upload, they are given a form with the exact information that they provided which they can then alter as they wish. Deleting an upload removes it entirely. A home page with images of 'Top Rated Albums' and 'Recently Added Albums' is seen upon accessing the site. Finally an albums list page with all of the uploads uploaded by the sites users is scrollable with each image being clickable and leading the user to a page dedicated to that album alone. 
 
 The idea for the site came from a friend who told me that while working at a small radio station in Ireland, she used a database of albums the criteria for which was that at least one band member had to be Irish. This was because the station had a quota of Irish bands that they played. 
 
@@ -7,6 +7,7 @@ The idea for the site came from a friend who told me that while working at a sma
 
 
 Below are examples of the site running on four different devices.
+
 Index page with two rows of images, one for Top Rated Albums and one for Recently Added Albums:
 ![Home Page](./static/images/readme3.png)
 Albums List page with all uploads by users:
@@ -48,6 +49,7 @@ The site uses two fonts.
 13. Google Fonts was used to get the fonts used in the site.
 14. JQuery was used for getting code to initialise Materialize CSS features.
 15. Jinja is part of the flask application. It is used for writing Python code in html files and while debug is set to True in the application, it shows error messages when code is throwing an error, giving the source of the problem in the code.
+16. Am I Responsive (http://ami.responsivedesign.is/) was used to get screenshots showing the site displaying across four different device sizes for use in the README.md file
 
 ## Languages used
 1. Html5
@@ -59,9 +61,30 @@ The site uses two fonts.
 1. A separate home page ( login_home.html ) for logged in users which displays a different set of albums...
 
 # Testing
-1. When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
-2. I wanted to have a different set of albums showing on the home page for logged in users. I first inplemented a new homepage called login_home.html which was a copy of the home.html page. Here I showed the different albums for a logged in user using 'if' statements. However after being away from the project for some time, when returning to my work using the 'python3 app.py' method, if I was still logged in on the site, the default home.html from the 'home' view would render as the landing page until any of the home links were clicked in the nav/footer. I fixed this by removing the login_home.html page and adding the if statements to the home.html page.
-3. I tested the appearance and functionality of the profile page by creating four different profiles to test it. The usernames are admin, aaron, brian, dennis and quentin with the passwords being a repeat of the usernames.
+When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
+
+## Manual Testing Of Each Section Of The Site
+### BASE.HTML
+base.html consists of the navbar, which is viewed on mobile by clicking on a 'burger bar' icon which sees the navbar scroll in from the left of the screen. Also this file includes the footer. The navbar and footer are then used on each page of the project.
+* The Irish Music Vault logo on the left of the navbar returns the user to the home page evidenced by the /home path in the url.
+* On the right side of the navbar, the 'Home' button returns the user to the homepage evidenced again by the /home url path.
+* The 'Albums List' button brings the user to the albums page evidenced by the /albums path in the url.
+* The 'Register' button brings the user to the registration page evidenced by the /registration path in the url.
+* The 'Login' button brings the user to the login page evidenced by the /login path in the url.
+For Logged in Users(different set of links in the navbar):
+* The 'User's Profile' button brings the user to the profile page evidenced by the /profile?username=username path in the url.
+* The Upload button brings the user to the upload page evidenced by the /upload path in the url. 
+* The logout button succesfully logs out the user. Typing /logout at the end of the sites url while logged in will log the user out.
+In Mobile view these links are accessed via the screen that floats onto the screen from the left after pressing the 'burger bar' button. These mobile-view buttons act in exactly the same way as above.
+* In the footer the same buttons appear on the left of the screen (top of the footer on mobile view). Testing them shows they work in exactly the same way as above. 
+* On the right side of the footer (Underneath site navigation links on mobile-view), the Facebook logo takes the user via a new tab to the Facebook.com login page.
+* To the right of that, the Instagram logo takes the user to the Instagram login page in a new tab.  
+* On the right side of these links, the Twitter logo brings the user to the Twitter login page. 
+
+### HOME.HTML
+
+
+
 
 # Bugs
 1. On the albums.html page, when trying to loop over the 'genre_name' key within my 'genres' collection I was unable to use the same 'for loop' twice. This is because the variable 'genres' that I had assigned the 'mongo.db.genres.find()' method to within the app.py file can only 'unpack' the data from the mongoDB database once. This was fixed by enclosing the method within the list() method (i.e. list(mongo.db.genres.find()) ) to convert the returned data into a list object. The data can then be rendered more than once.
