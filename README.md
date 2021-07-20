@@ -82,6 +82,27 @@ In Mobile view these links are accessed via the screen that floats onto the scre
 * On the right side of these links, the Twitter logo brings the user to the Twitter login page. 
 
 ### HOME.HTML
+The home page consists of two rows of album cover images, one above and one below a written explanation of the site.
+* Clicking on any album cover results in the user being brought to the view-album.html page which has more in-depth information about the album. Clicking on an album image brings the user to this page and changes the url path to '/albums/<album_id>/view'.
+
+### ALBUMS.HTML
+The albums list page presents the user with a search bar and the list of albums uploaded by all users
+* The search bar on the top of the screen can be searched with both band names and album names. I can test this by typing 'Thin Lizzy' into the input. This results in the two so far uploaded 'Thin Lizzy' albums appearing on screen by themselves without any other albums. I can test that the album name is searchable by typing 'Johnny The Fox' into the input. This results in the album by that name appearing by itself on the page. 
+* The search bar can render results based on partially inputted data. For example typing 'J' into the search bar will return the listing for the artist named 'J. Smith'. Typing 'Eye' into the search bar returns the listing for the album 'Watchful Eye Of The Stars'. 
+* This method however, does not appear to give results based on common words such as 'And', 'All', 'The', 'A', 'Of' and other such connector words. 'More of the Hard Stuff' by 'The Dubliners' can be searched using 'Hard' and 'Stuff' alone. Similarly while searching using the partial band name, only 'Dubliners' will give a result for this bands listings.
+* If a search renders no result, a notice displaying the words 'No uploads found' is shown to the user. Also a button with 'Back' written on it is displayed. Clicking this will bring the user back to the default albums list page with every listing in the database being presented. 
+* Each album is presented in a card format and each has a clickable image bringing the user to a new page with more information (with a '/albums/<album_id>/view' url path) and a clickable website link linking the user to the bands website in a new tab.
+
+### REGISTER.HTML
+The register.html page gives the user a form containing the fields 'username', 'email' and 'password' as well as a button with 'Sign Up' for submitting the form. Below this is a link to the login page if the user already has an account. Each input field is grey by default. Each input field then turns tourqoise while the user is typing inside it. 
+* The username field has a form validation feature which turns the input field to a light green colour if the input is valid. The input requires a username of at least five characters and at most twenty characters. To test this I write 'mich' into the input and press tab. The input field changes to a red colour. Completing the username with 'michael' and pressing tab moves onto the next field and changes the field colour to light green indicating that the username is acceptable. Trying to submit the form without this field being filled in will result in an on screen error beside the field which asks the user to 'Please fill in this field'. 
+* Typing an email address minus the @ symbol will result in the input field changing to a red colour. I tested this by typing 'michael' into the field and pressing tab. If the user attempts to press the submit button, an on screen error asking the user to 'Please include an '@' in the email address. 'michael' is missing an '@'' will appear beside the field. Once a valid email address is entered, in this case 'michael@email.com' and tab is pressed, the field will change to light green.
+* The email field also has a validation in the app.py file. Should a valid username and password be supplied minus an email address and the submit button pressed, a warning in red font saying 'Please enter a valid email address' will appear above the form.
+* The password must be between five and twenty characters long. The valid characters include lowercase a-z, uppercase A-Z, and numbers 0-9. Testing this field demonstrates that leaving it blank and pressing tab will change the field colour to red. Pressing the submit button will cause a warning to display beside the field which states 'Please fill in this field'. Entering a valid password and pressing tab changes the field colour to light green. 
+* Pressing submit when all fields are entered correctly will submit the form successfully and in this test case I am now brought to the profile page set up for Michael. 
+
+### LOGIN.HTML
+
 
 
 

@@ -90,6 +90,25 @@ input {
     font-size: 3rem !important;
     font-family: "Lobster", sans-serif !important;
 }
+
+.home-headers-top {
+    font-size: 2rem;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 1.25rem !important;
+}
+
+.row .login-home-images-top {
+    height: 15vw;
+    width: 15vw;
+    margin-right: 25px;
+}
+
+.row .login-home-images-bottom {
+    height: 15vw;
+    width: 15vw;
+    margin-right: 25px;
+}
+
 /* ----------------------------------------------registration.html*/
 
 .flashes h4 {
@@ -107,7 +126,7 @@ input {
 }
 
 .alternative {
-    margin-bottom: 3rem;
+    margin-bottom: 4.5rem;
 }
 
 /* ----------------------------------------------albums.html*/
@@ -190,6 +209,11 @@ input {
 .search-bar {
     width: 90%;
 }
+
+div .none-found-btn {
+  margin-bottom: 5rem;
+}
+
 /* ----------------------------------------------view-album.html*/
 
 .album-view {
@@ -221,30 +245,6 @@ input {
     display: none;
 }
 
-/* ----------------------------------------------login_home.html*/
-
-.home-headers {
-    font-size: 2rem;
-    font-family: "Bebas Neue", sans-serif;
-}
-
-.home-headers-top {
-    font-size: 2rem;
-    font-family: "Bebas Neue", sans-serif;
-    margin-top: 1.25rem !important;
-}
-
-.row .login-home-images-top {
-    height: 15vw;
-    width: 15vw;
-    margin-right: 25px;
-}
-
-.row .login-home-images-bottom {
-    height: 15vw;
-    width: 15vw;
-    margin-right: 25px;
-}
 
 /* ----------------------------------------------profile.html*/
 
