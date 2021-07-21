@@ -264,5 +264,24 @@ See image below:
 10. The site is deployed at https://irish-music-vault.herokuapp.com/ .
 
 ## Creating MongoDB database
+1. Go to mongodb.com
+2. Click on either the 'Start Free' or 'Try Free' green buttons on the page.
+3. Sign up using the supplied form and click submit.
+4. Three Cluster options are presented, the Free option is what I chose for this project.
+5. Choose a cloud provider (I chose the Amazon AWS choice) and choose the closest territory (Ireland in my case)
+6. Below the regions options click on 'Cluster Tier', I chose the 'M0 Sandbox' tier.
+7. Below is an input field to create a Cluster Name. I chose 'myFirstCluster''.
+8. Click on the green Create Cluster button at the end of these options.
+9. In the Security section on the left side of the following page, click on Database Access. Next click on the 'Add New Database User' button.
+10. In the following page create a username and password being sure not to use any special characters e.g '&^%%$£@@'. These characters can cause issues with accessing the database.
+11. On the 'Database User Priveleges' dropdown below, click on the 'Read and write to any database' option. Afterwards click on the 'Add User' button.
+12. Back within the Security section on the left side of the following page, click on 'Network Access'. This ensures that our IP address has access to the database.
+13. Click on 'Add IP Address'. 
+14. On the following modal I chose the 'Allow Access From Anywhere' option.
+15. Back on the dashboard click on Clusters in the 'Data Storage' section on the left of the screen and within the 'Sandbox' click on the 'Collections' button. 
+16. On the following screen click on 'Add My Own Data' and create a database name and collection name.
+17. From within this screen click on 'Insert Document' to add a listing to the collection, I named my collection albums.
+18. I then created two more collections titled Genres and Users.
+19. To the albums collection I added the first listing using the input fields that I would use throughout development. Afterwards every time an upload is added using the upload form, the 'FOR' attribute in the label field matches the field names in the database.
 
 # Credits
