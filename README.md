@@ -93,7 +93,7 @@ The albums list page presents the user with a search bar and the list of albums 
 * If a search renders no result, a notice displaying the words 'No uploads found' is shown to the user. Also a button with 'Back' written on it is displayed. Clicking this will bring the user back to the default albums list page with every listing in the database being presented. 
 * Each album is presented in a card format and each has a clickable image bringing the user to a new page with more information (with a '/albums/<album_id>/view' url path) and a clickable website link linking the user to the bands website in a new tab.
 
-### REGISTER.HTML
+### REGISTRATION.HTML
 The register.html page gives the user a form containing the fields 'username', 'email' and 'password' as well as a button with 'Sign Up' for submitting the form. Below this is a link to the login page if the user already has an account. Each input field is grey by default. Each input field then turns tourqoise while the user is typing inside it. 
 * The username field has a form validation feature which turns the input field to a light green colour if the input is valid. The input requires a username of at least five characters and at most twenty characters. To test this I write 'mich' into the input and press tab. The input field changes to a red colour. Completing the username with 'michael' and pressing tab moves onto the next field and changes the field colour to light green indicating that the username is acceptable. Trying to submit the form without this field being filled in will result in an on screen error beside the field which asks the user to 'Please fill in this field'. 
 * Typing an email address minus the @ symbol will result in the input field changing to a red colour. I tested this by typing 'michael' into the field and pressing tab. If the user attempts to press the submit button, an on screen error asking the user to 'Please include an '@' in the email address. 'michael' is missing an '@'' will appear beside the field. Once a valid email address is entered, in this case 'michael@email.com' and tab is pressed, the field will change to light green.
@@ -135,8 +135,17 @@ The album view page, accessed by clicking on an album image brings the user to a
 * The link to the bands website opens up the webpage in another tab.
 * The button with 'Back to Albums' on it brings the user to the albums list page as expected.
 
-### 404.HTML and error handling
-The 404.html page is a custom 404 page accessed when a user 
+### 404.HTML
+The 404.html page is a custom 404 page accessed when a user attempts to access a url path that does not exist. To test this I will try and access a page with the path /doesnotexist in the url. Doing this brings me to the custom 404 page:
+![404 page](./static/images/not-exist.png)
+The page also contains two links 
+* The 'Homepage' link returns me to the homepage.
+* The 'Albums' link brings me to the albums page.
+
+#### Error Handling
+The logged out user cannot access the Profile, Upload, Edit pages. Also the delete and logout functions are not avaiable to the logged out user. To test this, while logged out I type /profile into the url and am returned to the homepage. I then type /upload into the url and am returned to the homepage. I then type /edit/<album_id> into the url and am returned to the homepage. Typing /delete/<album_id> and /logout also return me to the homepage. 
+
+To the logged in user, the login and registration pages are unavailable. To test this I type /login and /registration into the url and am both times returned to the homepage. 
 
 
 
@@ -171,16 +180,3 @@ The responsive element of this site was tested using three different methods:
 9. When accessing the project from within Heroku thereafter I clicked on the 'open app' button on the top right of the screen. The url that appeared in the browser was then sharable as a link to the deployed project.
 
 # Credits
-## Photos:
-1. Photo of Dogrel by Fontaines D.C. taken from https://www.fiveriserecords.co.uk/wp-content/uploads/2019/02/fontaines-dc-dogrel.jpg
-2. Photo of The Dubliners in Concert taken from https://images-na.ssl-images-amazon.com/images/I/61Udja6jyPL.jpg
-3. Photo of Zeitgeist by the Kevin Brady Trio taken from https://images.stevesjazzsounds.co.uk/images/products/original/11122009122925_160366280.jpg
-4. Photo of The Joshua Tree by U2 taken from https://images.genius.com/9790ce9f55a20d4664a52002b140ed68.1000x1000x1.jpg
-5. Photo of Suas Síos by Kíla taken from https://1.bp.blogspot.com/-XkHztxWMDJM/VYwHf1baNJI/AAAAAAAAExg/vB37DgDNu5c/s1600/11156152_10153214442287243_3030651577277183716_n.jpg
-6. Photo of Vagabonds of the Western World by Thin Lizzy taken from https://cdn.cdon.com/media-dynamic/images/product/music/vinyllp/image769/vagabonds_of_the_western_world_vin-thin_lizzy-49230935-frntl.JPG
-7. Photo of Justin Carroll's Togetherness taken from https://justincarroll.bandcamp.com/album/togetherness
-8. Photo of Agreements by Matt Halpin taken from https://matthewhalpinmusic.bandcamp.com/album/agreements
-9. Photo of Crazy World by Aslan taken from https://img.discogs.com/xtHtiwsexYZeijXDqFweFUZ1AMU=/fit-in/500x460/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-9590441-1483291962-3233.jpeg.jpg
-10. Photo of the Pogues, Waiting For Herb taken from https://en.wikipedia.org/wiki/Waiting_for_Herb#/media/File:Waiting_for_herb.jpg
-11. Photo of the Dubliners, Revolution taken from https://en.wikipedia.org/wiki/Revolution_(The_Dubliners_album)#/media/File:Dubliners_Revolution.jpg
-12. Photo of Echos by John Moriarty taken from https://www.rte.ie/entertainment/music-reviews/2013/0306/449906-guitar/
