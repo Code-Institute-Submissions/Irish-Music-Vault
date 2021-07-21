@@ -3,6 +3,12 @@ Irish Music Vault is intended to be a comprehensive list of albums recorded by I
 
 The idea for the site came from a friend who told me that while working at a small radio station in Ireland, she used a database of albums the criteria for which was that at least one band member had to be Irish. This was because the station had a quota of Irish bands that they played. 
 
+### Deployed site and Wireframes
+
+The deployed site is available here [here](https://irish-music-vault.herokuapp.com/)
+
+The wireframes created as a reference for the look and features of the site are viewable [here](ms3-wireframes.pdf).
+
 
 Below are examples of the site running on four different devices.
 

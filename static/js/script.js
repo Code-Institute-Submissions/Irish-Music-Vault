@@ -4,4 +4,4 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
-  
+  // Above is from Materialize in order to run code from their site.
