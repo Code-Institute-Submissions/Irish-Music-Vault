@@ -63,7 +63,15 @@ The main colours of the site are variations of green. To contrast with this, I u
 4. Python 3.8.1
 
 # Features
-1. A home page with information about the site as well as two rows of images, one for top rated albums and the other for most recent uploads.
+1. The site is responsive accross all device sizes. 
+2. A home page with information about the site as well as two rows of images, one for top rated albums and the other for most recent uploads. Images are clickable and bring the user to a page with more information about the release.
+3. User can scroll though the albums list page and click on any image which will display a new page with more information about the release.
+4. A registration form for signing up to the site and a login form for logging into the user profile.
+5. After logging in the user is presented with a new navbar link set. Gone are 'Registration' and 'Login' and added are 'User's Profile' and 'Upload'.
+6. The user can access their profile and from within this they can choose to edit or delete a listing that they have created which will be presented on this page. 
+7. The user can upload an album in the 'Upload' page and then edit/delete it in their profile page.
+8. The user can logout of their account.
+9. The site contains a custom 404 message that displays when an incorrect url is searched.
 
 # Testing
 When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
@@ -285,3 +293,5 @@ See image below:
 19. To the albums collection I added the first listing using the input fields that I would use throughout development. Afterwards every time an upload is added using the upload form, the 'FOR' attribute in the label field matches the field names in the database.
 
 # Credits
+* My mentor Akshat Garg was very helpful during the three calls.
+* Slack was indispensable while creating the project. I used it often as I found the majority of my problems during development had been experienced by others and good advice was available.
