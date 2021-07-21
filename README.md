@@ -19,11 +19,9 @@ Registration page:
 ## User Stories:
 1. As a visitor to the site, I am looking for a comprehensive database of albums by a diverse genre list of Irish bands.
 2. As a visitor to the site, I want to be able to either add my own bands albums and/or another bands albums.
-3. As a visitor to the site, I want the database to be easy to navigate and without duplicate albums being present.
-4. As a visitor to the site, I want to have my own profile page on which I can clearly see my own uploads and edit/delete them if I so wish. For this I would require the ability to register and login.
-5. As a visitor to the site, I want links to online shops wherein I can purchase the listed albums. 
-6. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
-7. As a visitor to the site, I want a way to communicate with other users of the site via a comments section. 
+3. As a visitor to the site, I want to have my own profile page on which I can clearly see my own uploads and edit/delete them if I so wish. For this I would require the ability to register and login.
+4. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
+5. As a returning user of the site I want to be able to see any uploads added to the list by other users.
 
 # Design
 ## Fonts
@@ -164,15 +162,23 @@ JavaScript: The javascript file was validated using JShint (https://jshint.com/)
 
 Python: My Python code was validated using the Pep8 validator (http://pep8online.com/) with a status of 'All Right' being returned. Also I made sure to remove all errors in my python file using the debugger in the console. The only remaining error is telling me that 'env.py imported but unused'. This I will ignore as this is related to my env.py file, which contains my enviornement variables for running the Flask app, that is within my .gitignore file and thus not saved to GitHub. This is why I am getting this error and can be ignored.
 
-
-
-
+## Testing of User Stories
+1. As a visitor to the site, I am looking for a comprehensive database of albums by a diverse genre list of Irish bands.
+(This can be accessed on the albums list page as well as on the homepage where any newly added albums or albums rated 5/5 can be seen in the two image rows)
+2. As a visitor to the site, I want to be able to either add my own bands albums and/or another bands albums.
+(A user is free to upload any bands albums including their own)
+3. As a visitor to the site, I want to have my own profile page on which I can clearly see my own uploads and edit/delete them if I so wish. For this I would require the ability to register and login.
+(The user upon registration or logging in is brought to their own profile page wherein they can achieve these goals)
+6. As a visitor to the site, I want a search bar with which to easily navigate the albums list.
+(The albums list page features this and allows the user to search by band name and album title) 
+7. As a returning user of the site I want to be able to see any uploads added to the list by other users.
+(These are added to the albums list page as soon as the user clicks upload and can be seen by any user of the site)
 
 # Bugs
 1. On the albums.html page, when trying to loop over the 'genre_name' key within my 'genres' collection I was unable to use the same 'for loop' twice. This is because the variable 'genres' that I had assigned the 'mongo.db.genres.find()' method to within the app.py file can only 'unpack' the data from the mongoDB database once. This was fixed by enclosing the method within the list() method (i.e. list(mongo.db.genres.find()) ) to convert the returned data into a list object. The data can then be rendered more than once.
 2. In the console while running my app.py file, I was getting a deprecation warning. This was 'DeprecationWarning: count is deprecated. Use Collection.count_documents instead.' and this was appearing for the variable 'count = mongo.db.albums.find({"created_by": session["user"]}).count()'. Adjusting my code resulted in 'count = mongo.db.albums.count_documents({"created_by": session["user"]})'. This fixed the deprecation warning for this instance.
-3. On the home page and under the condition that the user was logged in, I was struggling to show only six albums per row as adding more, when an album was rated 5/5 or released in 2021, would add the album to the row causing a horizontal scrolling error and adding extra space to the right of the screen. While I could have fixed this issue using flex-wrap in the css file, I only wanted six albums per row. I fixed this by adding extra rows to the database for 'home_page_top' and 'home_page_bottom' on the albums for which I wanted appearing on the home screen and then a jinja conditional statement to the home.html file. For a real-world website, the admin would be the one to determine which albums go on the home screen for logged in users and update the database accordingly. 
-4. On the edit page when importing information from the database to use as placeholder text that the user might want to edit, the 'option' element for the rating input was defaulting to '5' in the browser rather than the correct uploaded rating from the database, if it was not five. This would necessitate the user to be certain to check the rating to make sure it was correct each time they were editing the album and thus would likely lead to errors if the user did not notice the incorrect rating. To fix this I changed the option element to a regular input field, '<input id="rating" name="rating" type="text" ... value="{{ album.rating }}">'. This fixed the problem.  
+3. On the edit page when importing information from the database to use as placeholder text that the user might want to edit, the 'option' element for the rating input was defaulting to '5' in the browser rather than the correct uploaded rating from the database, if it was not five. This would necessitate the user to be certain to check the rating to make sure it was correct each time they were editing the album and thus would likely lead to errors if the user did not notice the incorrect rating. To fix this I changed the option element to a regular input field, '<input id="rating" name="rating" type="text" ... value="{{ album.rating }}">'. This fixed the problem.  
+4. In the Python debugger in the console, in relation to my except messages a warning was showing telling me not to use 'bare except'. According to a question and answer page on stack overflow (https://stackoverflow.com/questions/54948548/what-is-wrong-with-using-a-bare-except) this is because it can cause unforeseen problems down the line. To fix this I changed the except code to 'except Exception:' and this worked fine. 
 
 # Deployment
 
