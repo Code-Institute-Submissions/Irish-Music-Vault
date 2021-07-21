@@ -63,10 +63,12 @@ The main colours of the site are variations of green. To contrast with this, I u
 4. Python 3.8.1
 
 # Features
-1. A separate home page ( login_home.html ) for logged in users which displays a different set of albums...
+1. A home page with information about the site as well as two rows of images, one for top rated albums and the other for most recent uploads.
 
 # Testing
 When setting up the flask app in the app.py file, debug was set to true in the app.run method within the 'if __name__ == "__main__":' statement, which is used to instruct the application on which parameters to run flask on by use of enviornment variables. This is a development procedure that will present a Jinja error screen if there is a bug within a piece of code, and will point me to where in the code the error exists. This was set to false before submission of the project.
+
+All testing of the site was conducted on both the deployed Heroku site and opening the development version on Gitpod.
 
 ## Manual Testing Of Each Section Of The Site
 ### BASE.HTML
@@ -91,6 +93,9 @@ The home page consists of two rows of album cover images, one above and one belo
 * Clicking on any album cover results in the user being brought to the view-album.html page which has more in-depth information about the album. Clicking on an album image brings the user to this page and changes the url path to '/albums/<album_id>/view'.
 
 ### ALBUMS.HTML
+* Upon uploading an album in the upload page, the user is brought to this page and a Flash message is displayed which states 'Album added to album list'. If I refresh the page this message is no longer present.
+* Upon deleting an album within the profile page, a Flash message is displayed on the profile page stating 'Your listing was removed'.
+
 The albums list page presents the user with a search bar and the list of albums uploaded by all users
 * The search bar on the top of the screen can be searched with both band names and album names. I can test this by typing 'Thin Lizzy' into the input. This results in the two so far uploaded 'Thin Lizzy' albums appearing on screen by themselves without any other albums. I can test that the album name is searchable by typing 'Johnny The Fox' into the input. This results in the album by that name appearing by itself on the page. 
 * The search bar can render results based on partially inputted data. For example typing 'J' into the search bar will return the listing for the artist named 'J. Smith'. Typing 'Eye' into the search bar returns the listing for the album 'Watchful Eye Of The Stars'. 
@@ -110,6 +115,8 @@ The register.html page gives the user a form containing the fields 'username', '
 The login page has the same input fields as the registration page minus the email input. The same validation errors and success indicators will be shown upon user interaction with it. Similar to the registration page, successful completion of the form followed by pressing the submit button will bring the user to their user profile page.
 
 ### PROFILE.HTML
+* Upon being logged into this page a Flash message is displayed welcoming the user. If I refresh the page this message is no longer present. Also upon successful registration to the site a Flash message is displayed on this page stating 'Registration Successful' after the user is again redirected to this page. 
+
 The profile page contains two sections. One for user details and another that contains any uploads a user has submitted. 
 * In the user details section at the top of the screen there are four pieces of user data. The first is the user's username which is set to the username that they registered with. In this test case it is set to 'michael' as per the registration testing above. The email is set to 'michael@email.com' as per the test case above. The next two are 'Total Uploads' and 'Uploads Rated 5/5'. 'Total Uploads' is set to 0 as I have not uploaded anything yet. 'Uploads Rated 5/5' is currently empty. The section below this which shows the albums that I have uploaded is also empty.
 * I will test these by uploading an album in the upload section, in this case 'Gambler's Ballet' by Kila
@@ -131,6 +138,9 @@ Screenshots below demonstrate the contents of each:
 ![MongoDB collections](./static/images/genres-in-db.png)
 
 ### EDIT.HTML
+* Upon completing the form and pressing the Edit Album button, the page is refreshed and a message stating 'Album listing updated' is shown.
+* Beside the 'Edit Album' is a 'Cancel Edit' button which brings the user back to the albums page.
+
 The edit page features the same form as the upload page with all inputted information visible to the user to modify. This is accessed by the edit button on the uploads list section of the profile page. I will test this feature by modifying the upload for kila. I will alter the name to include a fada which they use in their name. I will add a 'The' to the album title. I will re-arrange the personnel list and I will change the release year field to 2020. Also I will change the genre to Jazz & Blues (I will change some of this back afterwards).
 The result is visible here: 
 ![kila modified](./static/images/edit-kila.png)
