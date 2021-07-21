@@ -110,6 +110,7 @@ The register.html page gives the user a form containing the fields 'username', '
 * The email field also has a validation in the app.py file. Should a valid username and password be supplied minus an email address and the submit button pressed, a warning in red font saying 'Please enter a valid email address' will appear above the form.
 * The password must be between five and twenty characters long. The valid characters include lowercase a-z, uppercase A-Z, and numbers 0-9. Testing this field demonstrates that leaving it blank and pressing tab will change the field colour to red. Pressing the submit button will cause a warning to display beside the field which states 'Please fill in this field'. Entering a valid password and pressing tab changes the field colour to light green. 
 * Pressing submit when all fields are entered correctly will submit the form successfully and in this test case I am now brought to the profile page set up for Michael. 
+* When I enter my password and press submit, a hashed (indecipherable) password is sent to the MongoDB database. This I can test by going to the database and checking that a hashed password is there, and it is in this test case. 
 
 ### LOGIN.HTML
 The login page has the same input fields as the registration page minus the email input. The same validation errors and success indicators will be shown upon user interaction with it. Similar to the registration page, successful completion of the form followed by pressing the submit button will bring the user to their user profile page.
@@ -123,6 +124,9 @@ The profile page contains two sections. One for user details and another that co
 * As expected, in the user details section the 'Total Uploads' has been increased to '1'. As I rated it 5/5 it has been included in the section titled 'Uploads Rated 5/5. Also as expected the album listing which also appears on the albums page has appeared on the lower half of the profile page. 
 * Included in this album listing unlike on the albums page, is an edit and delete button unique to the profile page. Pressing on the edit button brings me to the edit page. 
 * Clicking on the delete button opens up a modal that asks me to confirm the deletion. When I press 'No' the profile page is reloaded and the upload remains in the database. When I click 'Yes' the upload is deleted from the database permanently.
+
+Below is an example of a flash message.
+![MongoDB databse](./static/images/flash-message.png)
 
 ### UPLOAD.HTML
 The upload page contains nine input fields for uploading an album. Also included are two for 'created_by' and 'created_at' which the user does not modify. These automatically upload the users name and date of upload to the database. Three of the input fields use the same validation methods as in the register.html page mentioned above turning the field to red if the user has filled them in incorrectly. Only band name, album name and year of release are required in these fields. This is because these fields are the minimum required to describe the album listing to a user of the site. I will upload the album 'Gambler's Ballet' by Kila once more and this is the result in the MongoDB database:
@@ -198,6 +202,38 @@ Python: My Python code was validated using the Pep8 validator (http://pep8online
 4. In the Python debugger in the console, in relation to my except messages a warning was showing telling me not to use 'bare except'. According to a question and answer page on stack overflow (https://stackoverflow.com/questions/54948548/what-is-wrong-with-using-a-bare-except) this is because it can cause unforeseen problems down the line. To fix this I changed the except code to 'except Exception:' and this worked fine. 
 5. When trying to sort through my albums collection on mongoDB to get both the most recently uploaded albums and the uploads rated 5/5 I used the code 'list(mongo.db.albums.find().sort({"rating": -1}).limit(6))'. This was expected to sort the albums based on their rating but it would not work for me. I searched on stack overflow and found a relevant page https://stackoverflow.com/questions/57778658/typeerror-if-no-direction-is-specified-key-or-list-must-be-an-instance-of-list. This page recommended removing the brackets and colon from the code, i.e 'list(mongo.db.albums.find().sort("rating", -1).limit(6))' and this worked perfectly.
 
+# Data Schema
+Three MongoDB collections were used throughout development of the site. These are titled: albums, genres and users.
+
+1. ALBUMS: this collection contains 12 rows per listing. These are as follows:
+* _id - The unique identifier of the listing, useful for editing and deleting listings and giving each album it's own page with extra information when a user clicks on the album cover image.
+* band_name - The bands name
+* album_name - The album name
+* genre_name - The genre name, so far there are five genres to choose from, this is something that could be increased in future.
+* release_date - This is the year that the album was released
+* album_image - The uploader/editer is asked for a url to the image
+* personnel - The band members that play on the album
+* songs - The song list
+* website - The website url
+* created_by - The uploader's username. The uploader does not see this in the upload form.
+* created_at - The date on which the album was created.
+* rating - The users rating out of 5. This is used in an image row on the homepage.
+See image below:
+![Pogues listing](./static/images/pogues-db.png)
+
+2. GENRES: this collection contains 2 rows per listing
+* _id - The unique identifier of the listing
+* genre_name - The genre name. This was used when looping through the genre_name row when setting up the option to choose a genre on the upload and edit form.
+![Genres collection](./static/images/rap-db.png)
+
+3. USERS: this collection contains 4 rows per listing.
+* _id - The unique identifier of the listing.
+* username - The user's chosen username.
+* email - The user's email address.
+* password - The users hashed email address
+![Users collection](./static/images/michael-db.png)
+
+
 # Deployment
 ## Deployment to Github
 1. First I created my project repository using the Code Institute template.
@@ -226,5 +262,7 @@ Python: My Python code was validated using the Pep8 validator (http://pep8online
 8. Once Heroku has finished retrieving information from my GitHub repository I am presented with a button with 'View' written on it. This allows me to open up the project in the server.
 9. When accessing the project from within Heroku thereafter I clicked on the 'open app' button on the top right of the screen. The url that appeared in the browser was then sharable as a link to the deployed project.
 10. The site is deployed at https://irish-music-vault.herokuapp.com/ .
+
+## Creating MongoDB database
 
 # Credits
