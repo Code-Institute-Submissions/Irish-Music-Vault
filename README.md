@@ -23,14 +23,14 @@ This site is intended for music fans to have a comprehensive listing of albums b
 4. As a visitor to the site, I want a search bar with which to easily navigate the albums list. 
 5. As a returning user of the site I want to be able to see any uploads added to the list by other users.
 
-# Design
-## Fonts
+## Design
+### Fonts
 The site uses three fonts. 
 1. For the main text on the site within paragraphs and the copyright, Yrsa is used and taken from Google Fonts. 
 2. For the sites logo text in the navbar, Bebas Neue is used and taken from Google fonts.
 3. For page headers, the Lobster font is used and taken from Google fonts. 
 
-## Color palette
+### Color palette
 The main colours of the site are variations of green. To contrast with this, I used mainly black as well as red and blue for the search bar buttons and edit/delete buttons. 
 * #e8f5e9, a light green, was used as the sites background colour.
 * #00695c, was used for the album card background.
@@ -186,6 +186,7 @@ Python: My Python code was validated using the Pep8 validator (http://pep8online
 2. In the console while running my app.py file, I was getting a deprecation warning. This was 'DeprecationWarning: count is deprecated. Use Collection.count_documents instead.' and this was appearing for the variable 'count = mongo.db.albums.find({"created_by": session["user"]}).count()'. Adjusting my code resulted in 'count = mongo.db.albums.count_documents({"created_by": session["user"]})'. This fixed the deprecation warning for this instance.
 3. On the edit page when importing information from the database to use as placeholder text that the user might want to edit, the 'option' element for the rating input was defaulting to '5' in the browser rather than the correct uploaded rating from the database, if it was not five. This would necessitate the user to be certain to check the rating to make sure it was correct each time they were editing the album and thus would likely lead to errors if the user did not notice the incorrect rating. To fix this I changed the option element to a regular input field, '<input id="rating" name="rating" type="text" ... value="{{ album.rating }}">'. This fixed the problem.  
 4. In the Python debugger in the console, in relation to my except messages a warning was showing telling me not to use 'bare except'. According to a question and answer page on stack overflow (https://stackoverflow.com/questions/54948548/what-is-wrong-with-using-a-bare-except) this is because it can cause unforeseen problems down the line. To fix this I changed the except code to 'except Exception:' and this worked fine. 
+5. When trying to sort through my albums collection on mongoDB to get both the most recently uploaded albums and the uploads rated 5/5 I used the code 'list(mongo.db.albums.find().sort({"rating": -1}).limit(6))'. This was expected to sort the albums based on their rating but it would not work for me. I searched on stack overflow and found a relevant page https://stackoverflow.com/questions/57778658/typeerror-if-no-direction-is-specified-key-or-list-must-be-an-instance-of-list. This page recommended removing the brackets and colon from the code, i.e 'list(mongo.db.albums.find().sort("rating", -1).limit(6))' and this worked perfectly.
 
 # Deployment
 ## Deployment to Github
