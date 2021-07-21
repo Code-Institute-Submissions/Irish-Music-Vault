@@ -117,10 +117,11 @@ The upload page contains nine input fields for uploading an album. Also included
 
 ![MongoDB databse](./static/images/mongo-db-example.png)
 
-The database contains three collections. One for albums, the contents of which is exemplified by the above screenshot. The next is 'Genres' and the third is 'Users'. ![MongoDB collections](./static/images/db-collections.png). 
+The database contains three collections. One for albums, the contents of which is exemplified by the above screenshot. The next is 'Genres' and the third is 'Users'. 
+![MongoDB collections](./static/images/db-collections.png). 
 
 Screenshots below demonstrate the contents of each:
-![MongoDB collections](./static/images/users-db.png)![MongoDB collections](./static/images/genres-db.png)
+![MongoDB collections](./static/images/user-db.png)![MongoDB collections](./static/images/genres-in-db.png)
 
 
 
