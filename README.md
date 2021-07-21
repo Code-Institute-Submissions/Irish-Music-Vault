@@ -4,8 +4,6 @@ Irish Music Vault is intended to be a comprehensive list of albums recorded by I
 The idea for the site came from a friend who told me that while working at a small radio station in Ireland, she used a database of albums the criteria for which was that at least one band member had to be Irish. This was because the station had a quota of Irish bands that they played. 
 
 
-
-
 Below are examples of the site running on four different devices.
 
 Index page with two rows of images, one for Top Rated Albums and one for Recently Added Albums:
@@ -16,6 +14,8 @@ Registration page:
 ![Register Page](./static/images/readme1.png)
 
 # UX
+This site is intended for music fans to have a comprehensive listing of albums by Irish bands. What would set it apart from other musical databases, for example simply using wikipedia, is this feature. This would narrow down and make the list smaller to the benefit of current, unknown Irish bands wanting to get their music heard who needn't compete with a database where people are less likely to find their listing due to its large scope. The site is intended to give exposure in this way at the same time as being a list of any release by an Irish band. 
+
 ## User Stories:
 1. As a visitor to the site, I am looking for a comprehensive database of albums by a diverse genre list of Irish bands.
 2. As a visitor to the site, I want to be able to either add my own bands albums and/or another bands albums.
@@ -25,11 +25,18 @@ Registration page:
 
 # Design
 ## Fonts
-The site uses two fonts. 
-1. For the main text on the site within paragraphs and the copyright, Cormorant Garamond is used and taken from Google Fonts. 
-2. For headings and the site logo text, Comfortaa is used and taken from Gogle fonts.
+The site uses three fonts. 
+1. For the main text on the site within paragraphs and the copyright, Yrsa is used and taken from Google Fonts. 
+2. For the sites logo text in the navbar, Bebas Neue is used and taken from Google fonts.
+3. For page headers, the Lobster font is used and taken from Google fonts. 
+
 ## Color palette
-1. The bar, footer
+The main colours of the site are variations of green. To contrast with this, I used mainly black as well as red and blue for the search bar buttons and edit/delete buttons. 
+* #e8f5e9, a light green, was used as the sites background colour.
+* #00695c, was used for the album card background.
+* Black, a Materialize class, was used for the background of the navbar/footer.
+* Green, a Materialize class, was used to contrast the black background of the navbar/footer
+* The materialize classes blue lighten-3 and red lighten-3 were used for the search bar buttons as well as the edit/delete buttons.
 
 # Technologies Used
 1. MongoDB was used as a database for holding any data related to the site.  
@@ -181,6 +188,21 @@ Python: My Python code was validated using the Pep8 validator (http://pep8online
 4. In the Python debugger in the console, in relation to my except messages a warning was showing telling me not to use 'bare except'. According to a question and answer page on stack overflow (https://stackoverflow.com/questions/54948548/what-is-wrong-with-using-a-bare-except) this is because it can cause unforeseen problems down the line. To fix this I changed the except code to 'except Exception:' and this worked fine. 
 
 # Deployment
+## Deployment to Github
+1. First I created my project repository using the Code Institute template.
+2. From there I click on the green Gitpod button that brings me to the editor. This is the last time I access the project in this way, from now on I access it through going to gitpod.io and clicking on my repository.
+3. When I am ready to commit an update of my work to github I type in the command line interface, 'git add -A', then 'git commit -m "Commit message", followed by git push to push the update to the repository.
+
+### To Fork the Project
+1. On my github page for this project, https://github.com/aaronh1986/Irish-Music-Vault, click 'fork' in the top right corner.
+2. All of the python requirements will need to be installed in order to use the forked project. My env.py file was added to .gitignore and so not pushed to Github.
+3. The method I used to store enviornement variables which are essential for the site was to store them in an env.py file.
+4. To run the project, type 'python3 app.py' into the console.
+
+### To Clone this Project
+1. On my github page, https://github.com/aaronh1986/Irish-Music-Vault, click on the button titled 'Code' to the left of the green button for accessing the editor.
+2. Click the button with the clipboard icon to copy the url. 
+3. Within the terminal of the editor, type git clone followed by copying in the url that you copied and press enter to create a clone of the project. You will need to change the current working directory to the location that you want to create the cloned project within.
 
 ## Deployment to Heroku
 1. In the command line, 'pip3 freeze --local > requirements.txt' is run in order to set up a requirements.txt file. Heroku uses this to see what dependencies are needed to run the application.
@@ -192,5 +214,6 @@ Python: My Python code was validated using the Pep8 validator (http://pep8online
 7. Then, back within the 'Deploy' section of my Heroku profile, and within the 'Automatic Deploys' area, I click on the 'Enable Automatic Deploys' button. 
 8. Once Heroku has finished retrieving information from my GitHub repository I am presented with a button with 'View' written on it. This allows me to open up the project in the server.
 9. When accessing the project from within Heroku thereafter I clicked on the 'open app' button on the top right of the screen. The url that appeared in the browser was then sharable as a link to the deployed project.
+10. The site is deployed at https://irish-music-vault.herokuapp.com/ .
 
 # Credits
