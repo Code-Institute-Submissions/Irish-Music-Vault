@@ -113,7 +113,14 @@ The profile page contains two sections. One for user details and another that co
 * Clicking on the delete button opens up a modal that asks me to confirm the deletion. When I press 'No' the profile page is reloaded and the upload remains in the database. When I click 'Yes' the upload is deleted from the database permanently.
 
 ### UPLOAD.HTML
-The upload page contains nine input fields for uploading an album. These input fields use the same validation method as the registration page
+The upload page contains nine input fields for uploading an album. Also included are two for 'created_by' and 'created_at' which the user does not modify. These automatically upload the users name and date of upload to the database. Three of the input fields use the same validation methods as in the register.html page mentioned above turning the field to red if the user has filled them in incorrectly. Only band name, album name and year of release are required in these fields. This is because these fields are the minimum required to describe the album listing to a user of the site. I will upload the album 'Gambler's Ballet' by Kila once more and this is the result in the MongoDB database:
+
+![MongoDB databse](./static/images/mongo-db-example.png)
+
+The database contains three collections. One for albums, the contents of which is exemplified by the above screenshot. The next is 'Genres' and the third is 'Users'. ![MongoDB collections](./static/images/db-collections.png). 
+
+Screenshots below demonstrate the contents of each:
+![MongoDB collections](./static/images/users-db.png)![MongoDB collections](./static/images/genres-db.png)
 
 
 

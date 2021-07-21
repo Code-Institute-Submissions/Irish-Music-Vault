@@ -5,18 +5,21 @@
 <!--Album upload form-->
 <div class="row">
     <form action="{{ url_for('upload') }}" method="POST">
+      <!--Band Name-->
     <div class="row">
     <div class="input-field col s6 offset-s3 center-align">
       <input id="band_name" name="band_name" type="text" class="validate input-fields black-text" required>
       <label class="active input-fields" for="band_name">Band Name</label>
     </div>
     </div>
+    <!--Album Name-->
     <div class="row">
     <div class="input-field col s6 offset-s3 center-align">
         <input id="album_name" name="album_name" type="text" class="validate input-fields black-text" required>
         <label class="active input-fields" for="album_name">Album Name</label>
       </div>
     </div>
+    <!--Choice of Genre-->
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <select id="genre_name" name="genre_name" class="validate" required>
@@ -28,6 +31,7 @@
             <label for="genre_name">Choose a genre</label>
           </div>
       </div>
+      <!--Year of Release-->
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
         <input id="release_date" name="release_date" type="number" min="1900" max="2050" minlength="4" 
@@ -35,39 +39,45 @@
         <label class="active input-fields" for="release_date">Year of Release</label>
       </div>
     </div>
+    <!--Upload an album image-->
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
         <input id="album_image" name="album_image" type="text" class="validate input-fields black-text" placeholder="Add image url">
         <label class="active input-fields" for="album_image">Album Image</label>
       </div>
     </div>
+    <!--Website url-->
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <input id="website" name="website" type="text" class="validate input-fields black-text" placeholder="Add website url">
             <label class="active input-fields" for="website">Website</label>
         </div>
     </div>
+    <!--Band Members-->
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <input id="personnel" name="personnel" type="text" class="validate input-fields black-text" placeholder="Add band members and instruments played">
             <label class="active input-fields" for="personnel">Personnel</label>
         </div>
     </div>
+    <!--Track List-->
     <div class="row">
         <div class="input-field col s6 offset-s3 center-align">
             <input id="songs" name="songs" type="text" class="validate input-fields black-text">
             <label class="active input-fields" for="songs">Album Track List</label>
         </div>
     </div>
+    <!--Created by (invisible to user)-->
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
           <input id="created_by" name="created_by" type="text" class="validate input-fields invisible">
           <label class="active input-fields" for="created_by"></label>
       </div>
     </div>
+    <!--Choice of rating-->
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
-        <select id="rating" name="rating">
+        <select id="rating" name="rating" class="validate" required>
           <option value="" disabled selected>Choose One</option>
           {% for number in numbers %}
           <option value="{{ number }}">{{ number }}</option>
@@ -76,6 +86,7 @@
         <label for="rating">Rate This Album between 1 - 5</label>
       </div>
     </div>
+    <!--Date of Upload-->
     <div class="row">
       <div class="input-field col s6 offset-s3 center-align">
           <input id="created_at" name="created_at" type="text" class="validate input-fields invisible">

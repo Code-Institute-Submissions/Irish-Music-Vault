@@ -4,5 +4,4 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 
-  // Above are initialiser functions to run Materialize CSS elements
-
+  
