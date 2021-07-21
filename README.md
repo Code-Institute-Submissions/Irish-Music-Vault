@@ -126,9 +126,17 @@ Screenshots below demonstrate the contents of each:
 ![MongoDB collections](./static/images/genres-in-db.png)
 
 ### EDIT.HTML
-The edit page features the same form as the upload page with all inputted information visible to the user to modify. This is accessed by the edit button on the uploads list section of the profile page. I will test this feature by modifying the upload for kila. I will alter the name to include a fada which they use in their name. I will re-arrange the personnel list and I will change the release year field to 2020. Also I will change the genre to Jazz & Blues (I will change some of this back afterwards).
+The edit page features the same form as the upload page with all inputted information visible to the user to modify. This is accessed by the edit button on the uploads list section of the profile page. I will test this feature by modifying the upload for kila. I will alter the name to include a fada which they use in their name. I will add a 'The' to the album title. I will re-arrange the personnel list and I will change the release year field to 2020. Also I will change the genre to Jazz & Blues (I will change some of this back afterwards).
 The result is visible here: 
 ![kila modified](./static/images/edit-kila.png)
+
+### VIEW-ALBUM.HTML
+The album view page, accessed by clicking on an album image brings the user to a page with more information about the release, all taken from the database. The page contains only two interactive buttons:
+* The link to the bands website opens up the webpage in another tab.
+* The button with 'Back to Albums' on it brings the user to the albums list page as expected.
+
+### 404.HTML and error handling
+The 404.html page is a custom 404 page accessed when a user 
 
 
 
