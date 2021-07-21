@@ -148,13 +148,21 @@ The logged out user cannot access the Profile, Upload, Edit pages. Also the dele
 To the logged in user, the login and registration pages are unavailable. To test this I type /login and /registration into the url and am both times returned to the homepage. 
 
 
-
-
 ## Site Responsiveness
 The responsive element of this site was tested using three different methods:
 * The first was within the developer tools on Google Chrome. This is accessed by pressing control and left click on the mouse. Then on the menu that displays as a result, clicking on inspect at the bottom. This allows me to look at the site as it would appear on a variety of different device sizes. Using these different device views I can see where there are issues and fix them accordingly using media queries in the css file. 
 * Using the site Am I Responsive (http://ami.responsivedesign.is/), I was able to test how the site looked on four different widely varying device sizes. Screenshots from this site are included at the top of this README file. 
-*  I had access 
+*  I had access to multiple devices during development. I had an iPhone 5 and 7, MacBook Pro (13" screen) and another 15" screen laptop aswell as a 21" wide/13" inch high monitor. Using these I could test the sites responsiveness
+
+## Code Validation
+HTML: the html was validated using the W3C validator from the site https://validator.w3.org/. As can be seen from the following screenshot most, and in the case of this screenshot, all of the errors are related to the use of Flask rather than errors within the actual HTML syntax itself. These were ignored while validating the html.
+![html validator](./static/images/html-valid.png)
+
+CSS: the css file was validated using The W3C CSS Validation Service (http://jigsaw.w3.org/css-validator/validator) and no errors were found.
+
+JavaScript: The javascript file was validated using JShint (https://jshint.com/) with no errors being found.
+
+Python: My Python code was validated using the Pep8 validator (http://pep8online.com/) with a status of 'All Right' being returned. Also I made sure to remove all errors in my python file using the debugger in the console. The only remaining error is telling me that 'env.py imported but unused'. This I will ignore as this is related to my env.py file, which contains my enviornement variables for running the Flask app, that is within my .gitignore file and thus not saved to GitHub. This is why I am getting this error and can be ignored.
 
 
 

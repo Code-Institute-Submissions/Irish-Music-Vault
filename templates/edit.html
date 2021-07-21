@@ -20,7 +20,7 @@
         <div class="row">
             <div class="input-field col s6 offset-s3 center-align">
                 <select id="genre_name" name="genre_name" class="validate" required>
-                    <option class="input-fields black-text" disabled>Choose One</option>
+                    <option class="input-fields black-text" value="" disabled>Choose One</option>
                     {% for genre in genres %} {% if genre.genre_name == album.genre_name %}
                     <option class="input-fields black-text" value="{{ genre.genre_name }}" selected>{{ genre.genre_name }}</option>
                     {% else %}
